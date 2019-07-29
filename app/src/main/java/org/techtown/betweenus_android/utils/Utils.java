@@ -12,7 +12,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class Utils {
+public final class Utils {
 
     public static Retrofit RETROFIT =
             new Retrofit.Builder()
