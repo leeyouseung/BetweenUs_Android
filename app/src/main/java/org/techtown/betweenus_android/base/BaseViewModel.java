@@ -50,7 +50,7 @@ public abstract class BaseViewModel<T> extends ViewModel {
         token = new Token(context);
     }
 
-    public void addDisposable(Single single, DisposableSingleObserver observer) {
+    public void addDisposable(Single<Login> single, DisposableSingleObserver<T> observer) {
         disposable.add((Disposable) single.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread()).subscribeWith(observer));
     }
