@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import org.techtown.betweenus_android.manager.Token;
+import org.techtown.betweenus_android.model.Login;
 
 import io.reactivex.Single;
 import io.reactivex.SingleObserver;
@@ -50,7 +51,7 @@ public abstract class BaseViewModel<T> extends ViewModel {
         token = new Token(context);
     }
 
-    public void addDisposable(Single<Login> single, DisposableSingleObserver<T> observer) {
+    public void addDisposable(Single single, DisposableSingleObserver observer) {
         disposable.add((Disposable) single.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread()).subscribeWith(observer));
     }
