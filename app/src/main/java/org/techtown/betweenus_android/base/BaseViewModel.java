@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import org.techtown.betweenus_android.manager.Token;
+import org.techtown.betweenus_android.model.Login;
 
 import io.reactivex.Single;
 import io.reactivex.SingleObserver;
