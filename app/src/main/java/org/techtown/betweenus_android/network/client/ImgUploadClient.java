@@ -16,8 +16,8 @@ public class ImgUploadClient extends BaseClient<ImgUploadApi> {
         return ImgUploadApi.class;
     }
 
-    public Single<Uri> imgUpload(Token token, ImgUploadRequest imgUploadRequest) {
+    public Single<Uri> imgUpload(ImgUploadRequest imgUploadRequest) {
 
-        return api.imgUpload(token.getToken(), imgUploadRequest.getFile()).map(getResponseObjectsFunction());
+        return api.imgUpload(imgUploadRequest.getFile()).map(getResponseObjectsFunction());
     }
 }

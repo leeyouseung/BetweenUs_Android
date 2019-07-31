@@ -26,16 +26,6 @@ public class ImgUploadViewModel extends BaseViewModel<Uri> {
     }
 
     public void imgUpload(ImgUploadRequest imgUploadRequest) {
-        addDisposable(imgUploadClient.imgUpload(getToken(), imgUploadRequest),getDataObserver());
-    }
-
-    @Override
-    protected void onCleared() {
-        super.onCleared();
-
-        if(file.getValue().exists())
-        {
-            file.getValue().delete();
-        }
+        addDisposable(imgUploadClient.imgUpload(imgUploadRequest),getDataObserver());
     }
 }

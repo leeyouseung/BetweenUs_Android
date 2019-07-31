@@ -4,6 +4,8 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.OvalShape;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -22,6 +24,7 @@ import org.techtown.betweenus_android.R;
 import org.techtown.betweenus_android.base.BaseActivity;
 import org.techtown.betweenus_android.databinding.SignupActivityBinding;
 import org.techtown.betweenus_android.manager.ViewModelFactory;
+import org.techtown.betweenus_android.network.request.ImgUploadRequest;
 import org.techtown.betweenus_android.network.request.SignupRequest;
 import org.techtown.betweenus_android.viewmodel.ImgUploadViewModel;
 import org.techtown.betweenus_android.viewmodel.SignupViewModel;
@@ -29,6 +32,10 @@ import org.techtown.betweenus_android.viewmodel.SignupViewModel;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 
 public class SignupActivity extends BaseActivity<SignupActivityBinding> {
 
@@ -45,8 +52,13 @@ public class SignupActivity extends BaseActivity<SignupActivityBinding> {
         super.onCreate(savedInstanceState);
 
         initViewModel();
+        initImg();
 
-        imgUploadViewModel.getData().observe(this, uri -> imgUploadViewModel.uri.setValue(uri));
+        imgUploadViewModel.getData().observe(this, uri -> {
+            imgUploadViewModel.uri.setValue(uri);
+            Glide.with(this).load(imgUploadViewModel.uri.getValue()).into(binding.imageView);
+            imgUploadViewModel.file.getValue().delete();
+        });
 
         signupViewModel.getSuccessMessage().observe(this, message -> {
             Toast.makeText(this, (String) message, Toast.LENGTH_LONG).show();
@@ -62,6 +74,12 @@ public class SignupActivity extends BaseActivity<SignupActivityBinding> {
     private void initViewModel() {
         signupViewModel = ViewModelProviders.of(this, new ViewModelFactory(this)).get(SignupViewModel.class);
         imgUploadViewModel = ViewModelProviders.of(this, new ViewModelFactory(this)).get(ImgUploadViewModel.class);
+    }
+
+    private void initImg() {
+        binding.imageView.setBackground(new ShapeDrawable(new OvalShape()));
+
+        binding.imageView.setClipToOutline(true);
     }
 
     private void clickEvent() {
@@ -124,6 +142,13 @@ public class SignupActivity extends BaseActivity<SignupActivityBinding> {
 
                 if (resultCode == Activity.RESULT_OK) {
                     Glide.with(this).load(imgUploadViewModel.uri.getValue()).into(binding.imageView);
+
+                    RequestBody mFile = RequestBody.create(MediaType.parse("image/*"), imgUploadViewModel.file.getValue());
+                    MultipartBody.Part fileToUpload = MultipartBody.Part.createFormData("image", imgUploadViewModel.file.getValue().getName(), mFile);
+
+                    ImgUploadRequest imgUploadRequest = new ImgUploadRequest(fileToUpload);
+
+                    imgUploadViewModel.imgUpload(imgUploadRequest);
                 }
 
                 break;

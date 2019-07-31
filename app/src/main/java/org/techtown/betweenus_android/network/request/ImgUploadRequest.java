@@ -8,6 +8,10 @@ public class ImgUploadRequest implements Serializable {
 
     private MultipartBody.Part file;
 
+    public ImgUploadRequest() {
+
+    }
+
     public ImgUploadRequest(MultipartBody.Part file) {
         this.file = file;
     }

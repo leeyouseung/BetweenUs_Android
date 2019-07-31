@@ -15,5 +15,5 @@ public interface ImgUploadApi {
 
     @Multipart
     @POST("")
-    Single<retrofit2.Response<Response<Uri>>> imgUpload(@Header("x-access-token") String token, @Part MultipartBody.Part file);
+    Single<retrofit2.Response<Response<Uri>>> imgUpload(@Part MultipartBody.Part file);
 }
