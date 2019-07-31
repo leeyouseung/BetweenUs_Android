@@ -12,16 +12,22 @@ public class SignupRequest {
 
     private String school;
 
+    private Integer schoolGrade;
+
+    private Integer schoolClass;
+
     private Uri profileImg;
 
     private String phoneNumber;
 
-    public SignupRequest(String id, String password, String name, String school, Uri profileImg, String phoneNumber) {
+    public SignupRequest(String id, String password, String name, String school, Integer schoolGrade, Integer schoolClass, Uri profileImg, String phoneNumber) {
         this.id = id;
         this.password = password;
         this.name = name;
         this.school = school;
         this.profileImg = profileImg;
+        this.schoolGrade = schoolGrade;
+        this.schoolClass = schoolClass;
         this.phoneNumber = phoneNumber;
     }
 
@@ -71,5 +77,21 @@ public class SignupRequest {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public Integer getSchoolGrade() {
+        return schoolGrade;
+    }
+
+    public void setSchoolGrade(Integer schoolGrade) {
+        this.schoolGrade = schoolGrade;
+    }
+
+    public Integer getSchoolClass() {
+        return schoolClass;
+    }
+
+    public void setSchoolClass(Integer schoolClass) {
+        this.schoolClass = schoolClass;
     }
 }

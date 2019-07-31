@@ -70,7 +70,7 @@ public class SignupActivity extends BaseActivity<SignupActivityBinding> {
 
         binding.signupBtn.setOnClickListener(v -> {
 
-            if (binding.idText.getText().toString().isEmpty() || binding.passwordText.getText().toString().isEmpty() || binding.rePasswordText.getText().toString().isEmpty() || binding.nameText.getText().toString().isEmpty() || binding.schoolText.getText().toString().isEmpty() || binding.phoneNumberText.getText().toString().isEmpty()) {
+            if (binding.idText.getText().toString().isEmpty() || binding.passwordText.getText().toString().isEmpty() || binding.rePasswordText.getText().toString().isEmpty() || binding.nameText.getText().toString().isEmpty() || binding.schoolText.getText().toString().isEmpty() || binding.gradeText.getText().toString().isEmpty() || binding.classText.getText().toString().isEmpty() || binding.phoneNumberText.getText().toString().isEmpty()) {
                 Toast.makeText(this, "빈칸 없이 회원가입 해 주세요.",Toast.LENGTH_SHORT).show();
                 return;
             }
@@ -83,6 +83,8 @@ public class SignupActivity extends BaseActivity<SignupActivityBinding> {
                     binding.passwordText.getText().toString(),
                     binding.nameText.getText().toString(),
                     binding.schoolText.getText().toString(),
+                    Integer.parseInt(binding.gradeText.getText().toString()),
+                    Integer.parseInt(binding.classText.getText().toString()),
                     imgUploadViewModel.uri.getValue(),
                     binding.phoneNumberText.getText().toString()));
         });
