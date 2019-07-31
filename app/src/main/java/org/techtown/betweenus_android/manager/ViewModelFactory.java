@@ -10,6 +10,7 @@ import org.techtown.betweenus_android.viewmodel.MainViewModel;
 
 /**
  * @author 우주 최강 천재 건우
+ * ViewModel 추가 시킬때 마다 create에 추가 시켜 줘야됨
  */
 public class ViewModelFactory extends ViewModelProvider.NewInstanceFactory {
 

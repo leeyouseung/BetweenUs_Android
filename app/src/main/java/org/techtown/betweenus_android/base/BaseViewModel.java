@@ -24,7 +24,6 @@ public abstract class BaseViewModel<T> extends ViewModel {
 
     final MutableLiveData<String> successMessage = new MutableLiveData<>();
     final MutableLiveData<String> errorMessage = new MutableLiveData<>();
-    final MutableLiveData<Throwable> error = new MutableLiveData<>();
     final MutableLiveData<T> data = new MutableLiveData<>();
 
     public LiveData<String> getSuccessMessage() {
@@ -37,9 +36,6 @@ public abstract class BaseViewModel<T> extends ViewModel {
 
     public LiveData<String> getErrorMessage() {
         return errorMessage;
-    }
-    public LiveData<Throwable> getError() {
-        return error;
     }
 
     public Token getToken() {
@@ -80,7 +76,6 @@ public abstract class BaseViewModel<T> extends ViewModel {
             @Override
             public void onError(Throwable e) {
                 errorMessage.setValue(e.getMessage());
-                error.setValue(e);
             }
         };
     }
