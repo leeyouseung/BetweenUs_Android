@@ -5,8 +5,10 @@ import android.content.Context;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
+import org.techtown.betweenus_android.viewmodel.ImgUploadViewModel;
 import org.techtown.betweenus_android.viewmodel.LoginViewModel;
 import org.techtown.betweenus_android.viewmodel.MainViewModel;
+import org.techtown.betweenus_android.viewmodel.SignupViewModel;
 
 /**
  * @author 우주 최강 천재 건우
@@ -26,6 +28,10 @@ public class ViewModelFactory extends ViewModelProvider.NewInstanceFactory {
             return (T) new LoginViewModel(context);
         } else if (modelClass == MainViewModel.class) {
             return (T) new MainViewModel(context);
+        } else if (modelClass == SignupViewModel.class) {
+            return (T) new SignupViewModel(context);
+        } else if (modelClass == ImgUploadViewModel.class) {
+            return (T) new ImgUploadViewModel(context);
         } else {
             return super.create(modelClass);
         }

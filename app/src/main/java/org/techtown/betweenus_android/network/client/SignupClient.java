@@ -2,23 +2,23 @@ package org.techtown.betweenus_android.network.client;
 
 import org.json.JSONObject;
 import org.techtown.betweenus_android.base.BaseClient;
-import org.techtown.betweenus_android.model.Login;
-import org.techtown.betweenus_android.network.api.LoginApi;
-import org.techtown.betweenus_android.network.request.LoginRequest;
+import org.techtown.betweenus_android.network.api.SignupApi;
+import org.techtown.betweenus_android.network.request.SignupRequest;
 
 import java.util.Objects;
 
 import io.reactivex.Single;
+import retrofit2.Response;
 
-public class LoginClient extends BaseClient<LoginApi> {
+public class SignupClient extends BaseClient<SignupApi> {
 
     @Override
     protected Class api() {
-        return LoginApi.class;
+        return SignupApi.class;
     }
 
-    public Single<Login> login(LoginRequest loginRequest) {
-        return api.login(loginRequest).map(response -> {
+    public Single<String> signup(SignupRequest signupRequest) {
+        return api.signup(signupRequest).map(response -> {
 
             if (!response.isSuccessful()) {
                 JSONObject errorBody = new JSONObject(Objects
@@ -30,14 +30,11 @@ public class LoginClient extends BaseClient<LoginApi> {
 
             if (response.body().getStatus() == 200) {
 
-                Login login = new Login();
-                login.setToken(response.body().getData().getToken());
-
-                return login;
+                return response.body().getMessage();
             }
             else if (response.body().getStatus() == 401) {
 
-                throw new Exception("아이디 또는 비밀번호가 틀렸습니다");
+                throw new Exception("아이디가 중복되었습니다.");
             }
             else {
 

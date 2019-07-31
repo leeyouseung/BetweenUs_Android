@@ -1,16 +1,22 @@
 package org.techtown.betweenus_android.view.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
+
+import androidx.lifecycle.ViewModelProviders;
 
 import org.techtown.betweenus_android.R;
 import org.techtown.betweenus_android.base.BaseActivity;
 import org.techtown.betweenus_android.databinding.LoginActivityBinding;
 import org.techtown.betweenus_android.manager.Token;
+import org.techtown.betweenus_android.manager.ViewModelFactory;
 import org.techtown.betweenus_android.network.request.LoginRequest;
 import org.techtown.betweenus_android.viewmodel.LoginViewModel;
 
-public class LoginActivity extends BaseActivity<LoginActivityBinding, LoginViewModel> {
+public class LoginActivity extends BaseActivity<LoginActivityBinding> {
+
+    private LoginViewModel loginViewModel;
 
     @Override
     protected int layoutId() {
@@ -18,33 +24,44 @@ public class LoginActivity extends BaseActivity<LoginActivityBinding, LoginViewM
     }
 
     @Override
-    protected Class viewModel() {
-        return LoginViewModel.class;
-    }
-
-    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        viewModel.getData().observe(this, login -> {
+        initViewModel();
+
+        loginViewModel.getData().observe(this, login -> {
             new Token(this).setToken(login.getToken());
             Toast.makeText(this,"로그인 성공",Toast.LENGTH_LONG).show();
         });
 
-        viewModel.getErrorMessage().observe(this, message -> Toast.makeText(this,message,Toast.LENGTH_LONG).show());
+        loginViewModel.getErrorMessage().observe(this, message -> Toast.makeText(this,message,Toast.LENGTH_LONG).show());
+
+        clickEvent();
+    }
+
+    private void initViewModel() {
+        loginViewModel = ViewModelProviders.of(this, new ViewModelFactory(this)).get(LoginViewModel.class);
+    }
+
+    private void clickEvent() {
 
         binding.loginBtn.setOnClickListener(v -> {
-            if (binding.idText.getText().toString() == null) {
+            if (binding.idText.getText().toString().isEmpty()) {
                 Toast.makeText(this,"아이디를 입력해 주세요",Toast.LENGTH_SHORT).show();
                 return;
             }
-            if (binding.passwordText.getText().toString() == null) {
+            if (binding.passwordText.getText().toString().isEmpty()) {
                 Toast.makeText(this,"비밀번호를 입력해 주세요",Toast.LENGTH_SHORT).show();
                 return;
             }
-            viewModel.login(
+            loginViewModel.login(
                     new LoginRequest(binding.idText.getText().toString(),
                             binding.passwordText.getText().toString()));
+        });
+
+        binding.signupBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(this, SignupActivity.class);
+            startActivity(intent);
         });
     }
 }

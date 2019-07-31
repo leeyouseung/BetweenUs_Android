@@ -17,16 +17,13 @@ import org.techtown.betweenus_android.manager.ViewModelFactory;
 /**
  * @author 우주 최강 천재 건우
  */
-public abstract class BaseFragment<VB extends ViewDataBinding, T extends ViewModel> extends Fragment {
+public abstract class BaseFragment<VB extends ViewDataBinding> extends Fragment {
 
     protected VB binding;
-    protected T viewModel;
     protected View view;
 
     @LayoutRes
     protected abstract int layoutId();
-
-    protected abstract Class viewModel();
 
     public static<T extends Fragment> T newInstance(T fragment) {
         Bundle args = new Bundle();
@@ -43,7 +40,6 @@ public abstract class BaseFragment<VB extends ViewDataBinding, T extends ViewMod
                 inflater, layoutId(), container, false);
 
         view = binding.getRoot();
-        viewModel = (T) ViewModelProviders.of(this, new ViewModelFactory(getContext())).get(viewModel());
 
         return view;
     }

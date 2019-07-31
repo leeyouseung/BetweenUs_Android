@@ -11,22 +11,18 @@ import androidx.lifecycle.ViewModelProviders;
 
 import org.techtown.betweenus_android.manager.ViewModelFactory;
 
-public abstract class BaseActivity<VB extends ViewDataBinding, T extends ViewModel> extends AppCompatActivity {
+public abstract class BaseActivity<VB extends ViewDataBinding> extends AppCompatActivity {
 
     protected VB binding;
-    protected T viewModel;
 
     @LayoutRes
     protected abstract int layoutId();
-
-    protected abstract Class viewModel();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         binding = DataBindingUtil.setContentView(this, layoutId());
-        viewModel = (T) ViewModelProviders.of(this, new ViewModelFactory(this)).get(viewModel());
     }
 
     @Override
