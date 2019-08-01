@@ -45,4 +45,5 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
     implementation "gun0912.ted:tedpermission:2.1.0"
     implementation 'com.journeyapps:zxing-android-embedded:3.6.0'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
 }

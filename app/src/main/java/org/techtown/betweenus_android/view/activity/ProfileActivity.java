@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.annotation.Nullable;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
@@ -15,11 +17,12 @@ import com.google.zxing.qrcode.QRCodeWriter;
 import org.techtown.betweenus_android.R;
 import org.techtown.betweenus_android.base.BaseActivity;
 import org.techtown.betweenus_android.databinding.ProfileActivityBinding;
+import org.techtown.betweenus_android.manager.ViewModelFactory;
 import org.techtown.betweenus_android.viewmodel.ProfileViewModel;
 
 public class ProfileActivity extends BaseActivity<ProfileActivityBinding> {
 
-    ProfileViewModel profileViewModel;
+    ProfileViewModel mprofileViewModel;
 
     @Override
     protected int layoutId() {
@@ -29,6 +32,8 @@ public class ProfileActivity extends BaseActivity<ProfileActivityBinding> {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        initViewModel();
 
         binding.generateQRCodeBtn.setOnClickListener( v -> {
             String content = ""; // QR Code 생성을 위한 URL
@@ -65,5 +70,9 @@ public class ProfileActivity extends BaseActivity<ProfileActivityBinding> {
             }
         }
         return bitmap;
+    }
+
+    private void initViewModel() {
+        mprofileViewModel = ViewModelProviders.of(this, new ViewModelFactory(this)).get(ProfileViewModel.class);
     }
 }
