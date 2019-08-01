@@ -2,6 +2,7 @@ package org.techtown.betweenus_android.network.api;
 
 import android.net.Uri;
 
+import org.techtown.betweenus_android.model.Image;
 import org.techtown.betweenus_android.network.Response;
 
 import io.reactivex.Single;
@@ -15,9 +16,9 @@ public interface ImgUploadApi {
 
     @Multipart
     @POST("/upload/img")
-    Single<retrofit2.Response<Response<Uri>>> profileImgUpload(@Part MultipartBody.Part file);
+    Single<retrofit2.Response<Response<Image>>> profileImgUpload(@Part MultipartBody.Part file);
 
     @Multipart
     @POST("/upload/img/post")
-    Single<retrofit2.Response<Response<Uri>>> studyImgUpload(@Part MultipartBody.Part file);
+    Single<retrofit2.Response<Response<Image>>> studyImgUpload(@Part MultipartBody.Part file);
 }
