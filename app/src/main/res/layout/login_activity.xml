@@ -42,6 +42,7 @@
             android:hint="ID"
             android:padding="10dp"
             android:textSize="15dp"
+            android:inputType="text"
             android:textColorHint="@color/colorTextHint"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
