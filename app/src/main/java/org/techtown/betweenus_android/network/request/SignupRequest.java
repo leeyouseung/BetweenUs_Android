@@ -12,23 +12,23 @@ public class SignupRequest {
 
     private String school;
 
+    private String profileImg;
+
+    private String phoneNumber;
+
     private Integer schoolGrade;
 
     private Integer schoolClass;
 
-    private Uri profileImg;
-
-    private String phoneNumber;
-
-    public SignupRequest(String id, String password, String name, String school, Integer schoolGrade, Integer schoolClass, Uri profileImg, String phoneNumber) {
+    public SignupRequest(String id, String password, String name, String school, String profileImg, String phoneNumber, Integer schoolGrade, Integer schoolClass) {
         this.id = id;
         this.password = password;
         this.name = name;
         this.school = school;
         this.profileImg = profileImg;
+        this.phoneNumber = phoneNumber;
         this.schoolGrade = schoolGrade;
         this.schoolClass = schoolClass;
-        this.phoneNumber = phoneNumber;
     }
 
     public String getId() {
@@ -63,11 +63,11 @@ public class SignupRequest {
         this.school = school;
     }
 
-    public Uri getProfileImg() {
+    public String getProfileImg() {
         return profileImg;
     }
 
-    public void setProfileImg(Uri profileImg) {
+    public void setProfileImg(String profileImg) {
         this.profileImg = profileImg;
     }
 

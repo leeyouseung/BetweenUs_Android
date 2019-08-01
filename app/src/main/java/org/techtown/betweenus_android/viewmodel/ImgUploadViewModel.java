@@ -7,15 +7,18 @@ import androidx.lifecycle.MutableLiveData;
 
 import org.techtown.betweenus_android.base.BaseViewModel;
 import org.techtown.betweenus_android.manager.Token;
+import org.techtown.betweenus_android.model.Image;
 import org.techtown.betweenus_android.network.client.ImgUploadClient;
 import org.techtown.betweenus_android.network.request.ImgUploadRequest;
 
 import java.io.File;
 
-public class ImgUploadViewModel extends BaseViewModel<Uri> {
+public class ImgUploadViewModel extends BaseViewModel<Image> {
 
     public MutableLiveData<Uri> uri = new MutableLiveData<>();
     public MutableLiveData<File> file = new MutableLiveData<>();
+
+    public MutableLiveData<Image> images = new MutableLiveData<>();
 
     private ImgUploadClient imgUploadClient;
 

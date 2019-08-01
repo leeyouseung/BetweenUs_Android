@@ -54,8 +54,8 @@ public class SignupActivity extends BaseActivity<SignupActivityBinding> {
         initViewModel();
         initImg();
 
-        imgUploadViewModel.getData().observe(this, uri -> {
-            imgUploadViewModel.uri.setValue(uri);
+        imgUploadViewModel.getData().observe(this, images -> {
+            imgUploadViewModel.images.setValue(images);
             Glide.with(this).load(imgUploadViewModel.uri.getValue()).into(binding.imageView);
             imgUploadViewModel.file.getValue().delete();
         });
@@ -102,10 +102,10 @@ public class SignupActivity extends BaseActivity<SignupActivityBinding> {
                     binding.passwordText.getText().toString(),
                     binding.nameText.getText().toString(),
                     binding.schoolText.getText().toString(),
+                    imgUploadViewModel.images.getValue().getImages().get(0),
+                    binding.phoneNumberText.getText().toString(),
                     Integer.parseInt(binding.gradeText.getText().toString()),
-                    Integer.parseInt(binding.classText.getText().toString()),
-                    imgUploadViewModel.uri.getValue(),
-                    binding.phoneNumberText.getText().toString()));
+                    Integer.parseInt(binding.classText.getText().toString())));
         });
     }
 
@@ -113,7 +113,6 @@ public class SignupActivity extends BaseActivity<SignupActivityBinding> {
     private final int REQUEST_IMAGE_CROP = 2;
 
     private Uri photoURI;
-    private Uri tempURI;
 
     private void goToAlbum() {
 
@@ -172,7 +171,7 @@ public class SignupActivity extends BaseActivity<SignupActivityBinding> {
             e.printStackTrace();
         }
 
-        tempURI = Uri.fromFile(imgUploadViewModel.file.getValue());
+        imgUploadViewModel.uri.setValue(Uri.fromFile(imgUploadViewModel.file.getValue()));
 
         Intent cropIntent = new Intent("com.android.camera.action.CROP");
 
@@ -182,7 +181,7 @@ public class SignupActivity extends BaseActivity<SignupActivityBinding> {
         cropIntent.putExtra("aspectX",1);
         cropIntent.putExtra("aspectY",1);
         cropIntent.putExtra("scale",true);
-        cropIntent.putExtra("output",tempURI);
+        cropIntent.putExtra("output",imgUploadViewModel.uri.getValue());
 
         startActivityForResult(cropIntent,REQUEST_IMAGE_CROP);
 

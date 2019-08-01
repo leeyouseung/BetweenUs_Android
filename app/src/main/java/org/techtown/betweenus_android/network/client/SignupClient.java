@@ -8,7 +8,6 @@ import org.techtown.betweenus_android.network.request.SignupRequest;
 import java.util.Objects;
 
 import io.reactivex.Single;
-import retrofit2.Response;
 
 public class SignupClient extends BaseClient<SignupApi> {
 
