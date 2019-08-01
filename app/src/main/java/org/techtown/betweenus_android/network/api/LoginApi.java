@@ -13,6 +13,6 @@ import retrofit2.http.POST;
 public interface LoginApi {
 
     @NonNull
-    @POST("")
+    @POST("/auth/login")
     Single<retrofit2.Response<Response<Login>>> login(@Body LoginRequest loginRequest);
 }

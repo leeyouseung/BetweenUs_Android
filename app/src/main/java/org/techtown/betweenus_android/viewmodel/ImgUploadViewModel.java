@@ -25,7 +25,11 @@ public class ImgUploadViewModel extends BaseViewModel<Uri> {
         imgUploadClient = new ImgUploadClient();
     }
 
-    public void imgUpload(ImgUploadRequest imgUploadRequest) {
-        addDisposable(imgUploadClient.imgUpload(imgUploadRequest),getDataObserver());
+    public void profileImgUpload(ImgUploadRequest imgUploadRequest) {
+        addDisposable(imgUploadClient.profileImgUpload(imgUploadRequest), getDataObserver());
+    }
+
+    public void studyImgUpload(ImgUploadRequest imgUploadRequest) {
+        addDisposable(imgUploadClient.studyImgUpload(imgUploadRequest), getDataObserver());
     }
 }

@@ -14,6 +14,10 @@ import retrofit2.http.Part;
 public interface ImgUploadApi {
 
     @Multipart
-    @POST("")
-    Single<retrofit2.Response<Response<Uri>>> imgUpload(@Part MultipartBody.Part file);
+    @POST("/upload/img")
+    Single<retrofit2.Response<Response<Uri>>> profileImgUpload(@Part MultipartBody.Part file);
+
+    @Multipart
+    @POST("/upload/img/post")
+    Single<retrofit2.Response<Response<Uri>>> studyImgUpload(@Part MultipartBody.Part file);
 }

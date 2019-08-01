@@ -149,7 +149,7 @@ public class SignupActivity extends BaseActivity<SignupActivityBinding> {
 
                     ImgUploadRequest imgUploadRequest = new ImgUploadRequest(fileToUpload);
 
-                    imgUploadViewModel.imgUpload(imgUploadRequest);
+                    imgUploadViewModel.profileImgUpload(imgUploadRequest);
                 }
 
                 break;

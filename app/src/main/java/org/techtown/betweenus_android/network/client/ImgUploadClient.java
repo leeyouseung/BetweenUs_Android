@@ -16,8 +16,12 @@ public class ImgUploadClient extends BaseClient<ImgUploadApi> {
         return ImgUploadApi.class;
     }
 
-    public Single<Uri> imgUpload(ImgUploadRequest imgUploadRequest) {
+    public Single<Uri> profileImgUpload(ImgUploadRequest imgUploadRequest) {
 
-        return api.imgUpload(imgUploadRequest.getFile()).map(getResponseObjectsFunction());
+        return api.profileImgUpload(imgUploadRequest.getFile()).map(getResponseObjectsFunction());
+    }
+
+    public Single<Uri> studyImgUpload(ImgUploadRequest imgUploadRequest) {
+        return api.studyImgUpload(imgUploadRequest.getFile()).map(getResponseObjectsFunction());
     }
 }
