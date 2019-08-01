@@ -78,8 +78,9 @@ public class SignupActivity extends BaseActivity<SignupActivityBinding> {
 
     private void initImg() {
         binding.imageView.setBackground(new ShapeDrawable(new OvalShape()));
-
         binding.imageView.setClipToOutline(true);
+
+        Glide.with(this).load(imgUploadViewModel.uri.getValue()).into(binding.imageView);
     }
 
     private void clickEvent() {
@@ -112,6 +113,7 @@ public class SignupActivity extends BaseActivity<SignupActivityBinding> {
     private final int REQUEST_IMAGE_CROP = 2;
 
     private Uri photoURI;
+    private Uri tempURI;
 
     private void goToAlbum() {
 
@@ -141,7 +143,6 @@ public class SignupActivity extends BaseActivity<SignupActivityBinding> {
             case REQUEST_IMAGE_CROP:
 
                 if (resultCode == Activity.RESULT_OK) {
-                    Glide.with(this).load(imgUploadViewModel.uri.getValue()).into(binding.imageView);
 
                     RequestBody mFile = RequestBody.create(MediaType.parse("image/*"), imgUploadViewModel.file.getValue());
                     MultipartBody.Part fileToUpload = MultipartBody.Part.createFormData("image", imgUploadViewModel.file.getValue().getName(), mFile);
@@ -171,7 +172,7 @@ public class SignupActivity extends BaseActivity<SignupActivityBinding> {
             e.printStackTrace();
         }
 
-        imgUploadViewModel.uri.setValue(Uri.fromFile(imgUploadViewModel.file.getValue()));
+        tempURI = Uri.fromFile(imgUploadViewModel.file.getValue());
 
         Intent cropIntent = new Intent("com.android.camera.action.CROP");
 
@@ -181,7 +182,7 @@ public class SignupActivity extends BaseActivity<SignupActivityBinding> {
         cropIntent.putExtra("aspectX",1);
         cropIntent.putExtra("aspectY",1);
         cropIntent.putExtra("scale",true);
-        cropIntent.putExtra("output",imgUploadViewModel.uri.getValue());
+        cropIntent.putExtra("output",tempURI);
 
         startActivityForResult(cropIntent,REQUEST_IMAGE_CROP);
 

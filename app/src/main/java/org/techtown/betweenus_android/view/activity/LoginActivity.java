@@ -2,6 +2,8 @@ package org.techtown.betweenus_android.view.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.widget.Toast;
 
 import androidx.lifecycle.ViewModelProviders;
@@ -17,6 +19,8 @@ import org.techtown.betweenus_android.viewmodel.LoginViewModel;
 public class LoginActivity extends BaseActivity<LoginActivityBinding> {
 
     private LoginViewModel loginViewModel;
+
+    private boolean checkBlind = false;
 
     @Override
     protected int layoutId() {
@@ -44,6 +48,21 @@ public class LoginActivity extends BaseActivity<LoginActivityBinding> {
     }
 
     private void clickEvent() {
+
+        binding.clear.setOnClickListener(v -> binding.passwordText.setText(""));
+
+        binding.blind.setOnClickListener(v -> {
+            if (checkBlind) {
+                binding.blind.setImageResource(R.drawable.ic_blind);
+                binding.passwordText.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                checkBlind = false;
+            }
+            else {
+                binding.blind.setImageResource(R.drawable.ic_blind_check);
+                binding.passwordText.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                checkBlind = true;
+            }
+        });
 
         binding.loginBtn.setOnClickListener(v -> {
             if (binding.idText.getText().toString().isEmpty()) {
