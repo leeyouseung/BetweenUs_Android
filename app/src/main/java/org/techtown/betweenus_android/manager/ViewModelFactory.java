@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider;
 import org.techtown.betweenus_android.viewmodel.ImgUploadViewModel;
 import org.techtown.betweenus_android.viewmodel.LoginViewModel;
 import org.techtown.betweenus_android.viewmodel.MainViewModel;
+import org.techtown.betweenus_android.viewmodel.ProfileViewModel;
 import org.techtown.betweenus_android.viewmodel.SignupViewModel;
 
 /**
@@ -32,6 +33,8 @@ public class ViewModelFactory extends ViewModelProvider.NewInstanceFactory {
             return (T) new SignupViewModel(context);
         } else if (modelClass == ImgUploadViewModel.class) {
             return (T) new ImgUploadViewModel(context);
+        } else if (modelClass == ProfileViewModel.class) {
+            return (T) new ProfileViewModel(context);
         } else {
             return super.create(modelClass);
         }

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">BetweenUs_Android</string>
+    <string name="QRCodeGenerateBtn">QR코드 생성</string>
 </resources>
