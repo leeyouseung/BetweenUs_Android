@@ -1,5 +1,7 @@
 package org.techtown.betweenus_android.model;
 
+import java.util.List;
+
 public class Study {
     private Integer idx;
     private String memberId;
@@ -14,7 +16,7 @@ public class Study {
     private Integer locationIdx;
     private String location;
     private Integer currentPerson;
-    // todo - imgs
+    private List<String> imgs;
 
 
     public Integer getIdx() {
@@ -119,5 +121,13 @@ public class Study {
 
     public void setCurrentPerson(Integer currentPerson) {
         this.currentPerson = currentPerson;
+    }
+
+    public List<String> getImgs() {
+        return imgs;
+    }
+
+    public void setImgs(List<String> imgs) {
+        this.imgs = imgs;
     }
 }

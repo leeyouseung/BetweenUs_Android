@@ -36,6 +36,7 @@ public class LoginActivity extends BaseActivity<LoginActivityBinding> {
         loginViewModel.getData().observe(this, login -> {
             new Token(this).setToken(login.getToken());
             Toast.makeText(this,"로그인 성공",Toast.LENGTH_LONG).show();
+            startActivity(new Intent(this, MainActivity.class));
         });
 
         loginViewModel.getErrorMessage().observe(this, message -> Toast.makeText(this,message,Toast.LENGTH_LONG).show());

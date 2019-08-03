@@ -8,8 +8,10 @@ import androidx.lifecycle.ViewModelProvider;
 import org.techtown.betweenus_android.viewmodel.ImgUploadViewModel;
 import org.techtown.betweenus_android.viewmodel.LoginViewModel;
 import org.techtown.betweenus_android.viewmodel.MainViewModel;
+import org.techtown.betweenus_android.viewmodel.PlaceViewModel;
 import org.techtown.betweenus_android.viewmodel.ProfileViewModel;
 import org.techtown.betweenus_android.viewmodel.SignupViewModel;
+import org.techtown.betweenus_android.viewmodel.StudyViewModel;
 
 /**
  * @author 우주 최강 천재 건우
@@ -35,6 +37,10 @@ public class ViewModelFactory extends ViewModelProvider.NewInstanceFactory {
             return (T) new ImgUploadViewModel(context);
         } else if (modelClass == ProfileViewModel.class) {
             return (T) new ProfileViewModel(context);
+        } else if (modelClass == StudyViewModel.class) {
+            return (T) new StudyViewModel(context);
+        } else if (modelClass == PlaceViewModel.class) {
+            return (T) new PlaceViewModel(context);
         } else {
             return super.create(modelClass);
         }

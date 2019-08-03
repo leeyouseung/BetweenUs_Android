@@ -3,17 +3,12 @@ package org.techtown.betweenus_android.view.activity;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
-import android.database.Cursor;
-import android.graphics.drawable.ShapeDrawable;
-import android.graphics.drawable.shapes.OvalShape;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.view.View;
 import android.widget.Toast;
 
-import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.bumptech.glide.Glide;
@@ -22,12 +17,13 @@ import com.gun0912.tedpermission.TedPermission;
 
 import org.techtown.betweenus_android.R;
 import org.techtown.betweenus_android.base.BaseActivity;
-import org.techtown.betweenus_android.databinding.SignupActivityBinding;
+import org.techtown.betweenus_android.databinding.StudyWritingActivityBinding;
 import org.techtown.betweenus_android.manager.ViewModelFactory;
+import org.techtown.betweenus_android.network.client.StudyClient;
 import org.techtown.betweenus_android.network.request.ImgUploadRequest;
-import org.techtown.betweenus_android.network.request.SignupRequest;
+import org.techtown.betweenus_android.network.request.StudyRequest;
 import org.techtown.betweenus_android.viewmodel.ImgUploadViewModel;
-import org.techtown.betweenus_android.viewmodel.SignupViewModel;
+import org.techtown.betweenus_android.viewmodel.StudyViewModel;
 
 import java.io.File;
 import java.io.IOException;
@@ -37,14 +33,14 @@ import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 
-public class SignupActivity extends BaseActivity<SignupActivityBinding> {
+public class StudyWriteActivity extends BaseActivity<StudyWritingActivityBinding> {
 
-    private SignupViewModel signupViewModel;
+    private StudyViewModel studyViewModel;
     private ImgUploadViewModel imgUploadViewModel;
 
     @Override
     protected int layoutId() {
-        return R.layout.signup_activity;
+        return R.layout.study_writing_activity;
     }
 
     @Override
@@ -52,60 +48,43 @@ public class SignupActivity extends BaseActivity<SignupActivityBinding> {
         super.onCreate(savedInstanceState);
 
         initViewModel();
-        initImg();
+        initIntent();
 
         imgUploadViewModel.getData().observe(this, images -> {
             imgUploadViewModel.images.setValue(images);
-            Glide.with(this).load(imgUploadViewModel.uri.getValue()).into(binding.imageView);
+            Glide.with(this).load(imgUploadViewModel.uri.getValue()).into(binding.placeImageview);
             imgUploadViewModel.file.getValue().delete();
         });
-
-        signupViewModel.getSuccessMessage().observe(this, message -> {
-            Toast.makeText(this, (String) message, Toast.LENGTH_LONG).show();
-            Intent intent = new Intent(this, LoginActivity.class);
-            startActivity(intent);
-        });
-
-        signupViewModel.getErrorMessage().observe(this, message -> Toast.makeText(this, (String) message, Toast.LENGTH_SHORT).show());
 
         clickEvent();
     }
 
     private void initViewModel() {
-        signupViewModel = ViewModelProviders.of(this, new ViewModelFactory(this)).get(SignupViewModel.class);
+        studyViewModel = ViewModelProviders.of(this, new ViewModelFactory(this)).get(StudyViewModel.class);
         imgUploadViewModel = ViewModelProviders.of(this, new ViewModelFactory(this)).get(ImgUploadViewModel.class);
     }
 
-    private void initImg() {
-        binding.imageView.setBackground(new ShapeDrawable(new OvalShape()));
-        binding.imageView.setClipToOutline(true);
-
-        Glide.with(this).load(imgUploadViewModel.uri.getValue()).into(binding.imageView);
+    private void initIntent() {
+        Intent intent = getIntent();
+        studyViewModel.locationIdx = intent.getIntExtra("locationIdx",0);
     }
 
     private void clickEvent() {
 
-        binding.imageView.setOnClickListener(v -> goToAlbum());
+        binding.placeImageview.setOnClickListener(v -> goToAlbum());
 
-        binding.signupBtn.setOnClickListener(v -> {
-
-            if (binding.idText.getText().toString().isEmpty() || binding.passwordText.getText().toString().isEmpty() || binding.rePasswordText.getText().toString().isEmpty() || binding.nameText.getText().toString().isEmpty() || binding.schoolText.getText().toString().isEmpty() || binding.gradeText.getText().toString().isEmpty() || binding.classText.getText().toString().isEmpty() || binding.phoneNumberText.getText().toString().isEmpty()) {
-                Toast.makeText(this, "빈칸 없이 회원가입 해 주세요.",Toast.LENGTH_SHORT).show();
-                return;
-            }
-            if (!binding.passwordText.getText().toString().equals(binding.rePasswordText.getText().toString())) {
-                Toast.makeText(this, "비밀번호가 서로 다릅니다", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-            signupViewModel.signup(new SignupRequest(binding.idText.getText().toString(),
-                    binding.passwordText.getText().toString(),
-                    binding.nameText.getText().toString(),
-                    binding.schoolText.getText().toString(),
-                    imgUploadViewModel.images.getValue().getImages().get(0),
-                    binding.phoneNumberText.getText().toString(),
-                    Integer.parseInt(binding.gradeText.getText().toString()),
-                    Integer.parseInt(binding.classText.getText().toString())));
+        binding.writeBtn.setOnClickListener(v -> {
+            studyViewModel.postCreateStudy(new StudyRequest(
+                    binding.titleText.getText().toString(),
+                    binding.descriptionText.getText().toString(),
+                    binding.startTermText.getText().toString(),
+                    binding.endTermText.getText().toString(),
+                    binding.startTimeText.getText().toString(),
+                    binding.endTimeText.getText().toString(),
+                    Integer.parseInt(binding.personnelText.getText().toString()),
+                    studyViewModel.locationIdx,
+                    imgUploadViewModel.images.getValue().getImages()
+            ));
         });
     }
 
@@ -149,7 +128,8 @@ public class SignupActivity extends BaseActivity<SignupActivityBinding> {
 
                     ImgUploadRequest imgUploadRequest = new ImgUploadRequest(fileToUpload);
 
-                    imgUploadViewModel.profileImgUpload(imgUploadRequest);
+                    imgUploadViewModel.studyImgUpload(imgUploadRequest);
+                    Glide.with(this).load(imgUploadViewModel.uri.getValue()).into(binding.placeImageview);
                 }
 
                 break;

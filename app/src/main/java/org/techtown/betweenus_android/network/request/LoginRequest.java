@@ -4,11 +4,11 @@ public class LoginRequest {
 
     private String id;
 
-    private String password;
+    private String pw;
 
-    public LoginRequest(String id, String password) {
+    public LoginRequest(String id, String pw) {
         this.id = id;
-        this.password = password;
+        this.pw = pw;
     }
 
     public String getId() {
@@ -19,11 +19,11 @@ public class LoginRequest {
         this.id = id;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPw() {
+        return pw;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPw(String pw) {
+        this.pw = pw;
     }
 }

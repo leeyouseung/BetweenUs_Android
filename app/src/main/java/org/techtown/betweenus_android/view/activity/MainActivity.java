@@ -1,7 +1,9 @@
 package org.techtown.betweenus_android.view.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProviders;
@@ -14,16 +16,19 @@ import org.techtown.betweenus_android.databinding.MainActivityBinding;
 import org.techtown.betweenus_android.manager.ViewModelFactory;
 import org.techtown.betweenus_android.model.Study;
 import org.techtown.betweenus_android.viewmodel.MainViewModel;
+import org.techtown.betweenus_android.viewmodel.StudyViewModel;
 import org.techtown.betweenus_android.widget.recyclerview.adapter.MainListAdapter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class MainActivity extends BaseActivity<MainActivityBinding> {
 
-    private List<Study> studies;
+    private List<Study> studies = new ArrayList<>();
     private MainViewModel mainViewModel;
-    MainListAdapter mainListAdapter = new MainListAdapter(studies, this);
+    private StudyViewModel studyViewModel;
+    MainListAdapter mainListAdapter = new MainListAdapter(studies, this, this);
 
     // List 에 넣기 위한 index 선언
     int index = 0;
@@ -39,12 +44,24 @@ public class MainActivity extends BaseActivity<MainActivityBinding> {
         super.onCreate(savedInstanceState);
 
         initViewModel();
-        binding.studyRecyclerView.setAdapter(new MainListAdapter(studies, this));
-        initScrollListener();
+        studyViewModel.getStudyList();
+
+        studyViewModel.getData().observe(this, studyList -> {
+            studies = studyList;
+            recyclerview();
+        });
+
+        clickEvent();
     }
 
     private void initViewModel() {
         mainViewModel = ViewModelProviders.of(this, new ViewModelFactory(this)).get(MainViewModel.class);
+        studyViewModel = ViewModelProviders.of(this, new ViewModelFactory(this)).get(StudyViewModel.class);
+    }
+
+    private void recyclerview() {
+        binding.studyRecyclerView.setAdapter(new MainListAdapter(studies, this, this));
+        initScrollListener();
     }
 
     private void initScrollListener() {
@@ -62,7 +79,7 @@ public class MainActivity extends BaseActivity<MainActivityBinding> {
                 LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
 
                 if (!isLoading) {
-                    if (linearLayoutManager != null && linearLayoutManager.findLastCompletelyVisibleItemPosition() == lostFoundList.size() - 1) {
+                    if (linearLayoutManager != null && linearLayoutManager.findLastCompletelyVisibleItemPosition() == studies.size() - 1) {
                         if (index % 10 == 0) {
                             loadMore();
                         }
@@ -88,5 +105,10 @@ public class MainActivity extends BaseActivity<MainActivityBinding> {
             isLoading = false;
 
         }, 1000);
+    }
+
+    private void clickEvent() {
+
+        binding.create.setOnClickListener(v -> startActivity(new Intent(this, PlaceActivity.class)));
     }
 }

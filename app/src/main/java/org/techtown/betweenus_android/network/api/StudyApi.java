@@ -1,7 +1,10 @@
 package org.techtown.betweenus_android.network.api;
 
+import org.techtown.betweenus_android.model.Study;
 import org.techtown.betweenus_android.network.Response;
 import org.techtown.betweenus_android.network.request.StudyRequest;
+
+import java.util.List;
 
 import io.reactivex.Single;
 
@@ -14,7 +17,7 @@ import retrofit2.http.POST;
 public interface StudyApi {
 
     @GET("/study")
-    Single<retrofit2.Response<Response>> getStudyList();
+    Single<retrofit2.Response<Response<List<Study>>>> getStudyList(@Header("x-access-token") String token);
 
     @POST("/study")
     Single<retrofit2.Response<Response>> postCreateStudy(@Header("x-access-token") String token,

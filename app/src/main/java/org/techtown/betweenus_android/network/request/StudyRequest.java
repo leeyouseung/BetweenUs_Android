@@ -7,15 +7,15 @@ public class StudyRequest {
 
     private String title;
     private String description;
-    private Date startTerm;
-    private Date endTerm;
-    private Date startTime;
-    private Date endTime;
+    private String startTerm;
+    private String endTerm;
+    private String startTime;
+    private String endTime;
     private Integer personnel;
     private Integer locationIdx;
     private List<String> imgs;
 
-    public StudyRequest(String title, String description, Date startTerm, Date endTerm, Date startTime, Date endTime, Integer personnel, Integer locationIdx, List<String> imgs) {
+    public StudyRequest(String title, String description, String startTerm, String endTerm, String startTime, String endTime, Integer personnel, Integer locationIdx, List<String> imgs) {
         this.title = title;
         this.description = description;
         this.startTerm = startTerm;
@@ -43,35 +43,35 @@ public class StudyRequest {
         this.description = description;
     }
 
-    public Date getStartTerm() {
+    public String getStartTerm() {
         return startTerm;
     }
 
-    public void setStartTerm(Date startTerm) {
+    public void setStartTerm(String startTerm) {
         this.startTerm = startTerm;
     }
 
-    public Date getEndTerm() {
+    public String getEndTerm() {
         return endTerm;
     }
 
-    public void setEndTerm(Date endTerm) {
+    public void setEndTerm(String endTerm) {
         this.endTerm = endTerm;
     }
 
-    public Date getStartTime() {
+    public String getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Date startTime) {
+    public void setStartTime(String startTime) {
         this.startTime = startTime;
     }
 
-    public Date getEndTime() {
+    public String getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(Date endTime) {
+    public void setEndTime(String endTime) {
         this.endTime = endTime;
     }
 

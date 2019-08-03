@@ -32,6 +32,7 @@ public class LoginClient extends BaseClient<LoginApi> {
 
                 Login login = new Login();
                 login.setToken(response.body().getData().getToken());
+                login.setRefreshToken(response.body().getData().getRefreshToken());
 
                 return login;
             }

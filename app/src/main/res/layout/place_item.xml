@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/place_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="교실 1"
+            android:fontFamily="@font/nanum_squareeb"
+            android:textColor="#0B0E64"
+            android:textSize="20dp"
+            android:padding="20dp" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_marginHorizontal="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorTextHint"
+            app:layout_constraintTop_toBottomOf="@+id/place_text"></LinearLayout>
+
+    </LinearLayout>
+
+</layout>
