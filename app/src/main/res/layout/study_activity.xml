@@ -62,6 +62,28 @@
             app:layout_constraintEnd_toEndOf="@+id/linearLayout"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_face_black_24dp"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+        <TextView
+            android:id="@+id/memberId_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="10dp"
+            android:text="개설자"
+            android:textColor="@color/colorTextHint"
+            android:textSize="20dp"
+            app:layout_constraintStart_toEndOf="@+id/imageView10"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
         <com.mikhaellopez.circularimageview.CircularImageView
             android:id="@+id/study_imageview"
             android:layout_width="200dp"
@@ -97,12 +119,15 @@
             tools:text="스터디 제목" />
 
         <TextView
+            android:id="@+id/study_description"
             android:layout_width="0dp"
-            android:text="스터디 내용"
-            android:fontFamily="@font/nanum_squareb"
-            android:layout_marginTop="10dp"
-            android:textSize="20dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/nanum_squareb"
+            android:text="스터디 내용"
+            android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="@+id/linearLayout"
             app:layout_constraintStart_toStartOf="@+id/linearLayout"
             app:layout_constraintTop_toBottomOf="@+id/study_title" />
@@ -111,15 +136,16 @@
             android:id="@+id/imageView6"
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:layout_marginStart="20dp"
             android:layout_marginBottom="40dp"
             android:src="@drawable/ic_event_note_black_24dp"
-            app:layout_constraintBottom_toTopOf="@+id/write_btn"
+            app:layout_constraintBottom_toTopOf="@+id/apply_btn"
             app:layout_constraintStart_toStartOf="@+id/linearLayout" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="15dp"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="@+id/imageView6"
             app:layout_constraintStart_toEndOf="@+id/imageView6"
@@ -146,18 +172,20 @@
             android:id="@+id/imageView7"
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:layout_marginEnd="15dp"
             android:layout_marginBottom="40dp"
-            android:src="@drawable/ic_event_note_black_24dp"
-            app:layout_constraintBottom_toTopOf="@+id/write_btn"
-            tools:layout_editor_absoluteX="20dp" />
+            android:src="@drawable/ic_clock"
+            app:layout_constraintBottom_toTopOf="@+id/apply_btn"
+            app:layout_constraintEnd_toStartOf="@+id/linearLayout4" />
 
         <LinearLayout
+            android:id="@+id/linearLayout4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginEnd="20dp"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="@+id/imageView7"
-            app:layout_constraintStart_toEndOf="@+id/imageView7"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout"
             app:layout_constraintTop_toTopOf="@+id/imageView7">
 
             <TextView
@@ -178,7 +206,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/write_btn"
+            android:id="@+id/apply_btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
