@@ -1,5 +1,6 @@
 package org.techtown.betweenus_android.base;
 
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.LayoutRes;
@@ -30,5 +31,12 @@ public abstract class BaseActivity<VB extends ViewDataBinding> extends AppCompat
         super.onDestroy();
 
         binding = null;
+    }
+
+    @Override
+    public void setRequestedOrientation(int requestedOrientation) {
+        if (Build.VERSION.SDK_INT != Build.VERSION_CODES.O) {
+            super.setRequestedOrientation(requestedOrientation);
+        }
     }
 }
