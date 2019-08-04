@@ -8,7 +8,7 @@
 
     <color name="colorBackground">#EFEFEF</color>
 
-    <color name="colortBlack">#000000</color>
+    <color name="colorBlack">#000000</color>
     <color name="colorText">#535353</color>
     <color name="colorTextHint">#A5A5A5</color>
 </resources>
