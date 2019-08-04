@@ -72,7 +72,7 @@ public class MainListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         viewHolder.binding.currentPerson.setText(study.getCurrentPerson().toString() + " / ");
         viewHolder.binding.personnel.setText(study.getPersonnel().toString());
         viewHolder.binding.studyPlace.setText(study.getLocation());
-        viewHolder.binding.studyTime.setText(study.getStartTerm() + " ~ " + study.getEndTerm());
+        viewHolder.binding.studyTime.setText(study.getStartTerm().split(" ")[0] + " ~ " + study.getEndTerm().split(" ")[0]);
         if (!study.getImgs().isEmpty()) {
             Glide.with(view).load(study.getImgs().get(0)).into(viewHolder.binding.studyImageview);
         }

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProviders;
@@ -78,6 +79,12 @@ public class MainActivity extends BaseActivity<MainActivityBinding> {
 
                 LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
 
+                if (dy > 0) {
+                    binding.create.setVisibility(View.INVISIBLE);
+                }
+                else {
+                    binding.create.setVisibility(View.VISIBLE);
+                }
                 if (!isLoading) {
                     if (linearLayoutManager != null && linearLayoutManager.findLastCompletelyVisibleItemPosition() == studies.size() - 1) {
                         if (index % 10 == 0) {
