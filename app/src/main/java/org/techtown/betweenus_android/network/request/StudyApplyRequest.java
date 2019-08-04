@@ -2,17 +2,17 @@ package org.techtown.betweenus_android.network.request;
 
 public class StudyApplyRequest {
 
-    private Integer idx;
+    private Integer studyIdx;
 
-    public StudyApplyRequest(Integer idx) {
-        this.idx = idx;
+    public StudyApplyRequest(Integer studyIdx) {
+        this.studyIdx = studyIdx;
     }
 
-    public Integer getIdx() {
-        return idx;
+    public Integer getStudyIdx() {
+        return studyIdx;
     }
 
-    public void setIdx(Integer idx) {
-        this.idx = idx;
+    public void setStudyIdx(Integer studyIdx) {
+        this.studyIdx = studyIdx;
     }
 }

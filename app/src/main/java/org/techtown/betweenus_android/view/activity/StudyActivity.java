@@ -16,7 +16,6 @@ import org.techtown.betweenus_android.manager.ViewModelFactory;
 import org.techtown.betweenus_android.model.Study;
 import org.techtown.betweenus_android.network.request.StudyApplyRequest;
 import org.techtown.betweenus_android.viewmodel.StudyApplyViewModel;
-import org.techtown.betweenus_android.viewmodel.StudyViewModel;
 
 public class StudyActivity extends BaseActivity<StudyActivityBinding> {
 
@@ -38,10 +37,13 @@ public class StudyActivity extends BaseActivity<StudyActivityBinding> {
         initText();
 
         studyApplyViewModel.getData().observe(this, url -> {
-            new QR(this).setUrl(url);
-            Toast.makeText(this, "신청했습니다",Toast.LENGTH_SHORT);
+            QR qr = new QR(this,"betweenUs.db",null,1);
+            qr.insert(url);
+            Toast.makeText(this, "신청했습니다",Toast.LENGTH_SHORT).show();
             startActivity(new Intent(this, MainActivity.class));
         });
+
+        studyApplyViewModel.getErrorMessage().observe(this, message -> Toast.makeText(this, message, Toast.LENGTH_SHORT).show());
 
         clickEvent();
     }
