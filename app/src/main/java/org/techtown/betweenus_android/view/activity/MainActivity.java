@@ -85,34 +85,33 @@ public class MainActivity extends BaseActivity<MainActivityBinding> {
                 else {
                     binding.create.setVisibility(View.VISIBLE);
                 }
-                if (!isLoading) {
-                    if (linearLayoutManager != null && linearLayoutManager.findLastCompletelyVisibleItemPosition() == studies.size() - 1) {
-                        if (index % 10 == 0) {
-                            loadMore();
-                        }
-                        isLoading = true;
-                    }
-                }
+//                if (!isLoading) {
+//                    if (linearLayoutManager != null && linearLayoutManager.findLastCompletelyVisibleItemPosition() == studies.size() - 1) {
+//                        if (index % 10 == 0) {
+//                            loadMore();
+//                        }
+//                        isLoading = true;
+//                    }
+//                }
             }
         });
     }
 
-    // 무한 스크롤 기능 구현
-    private void loadMore() {
-        studies.add(null);
-        mainListAdapter.notifyItemInserted(studies.size() - 1);
-
-        Handler handler = new Handler();
-        handler.postDelayed( ()-> {
-
-            studies.remove(studies.size() - 1);
-            int scrollPosition = studies.size();
-            mainListAdapter.notifyItemRemoved(scrollPosition);
-
-            isLoading = false;
-
-        }, 1000);
-    }
+//    private void loadMore() {
+//        studies.add(null);
+//        mainListAdapter.notifyItemInserted(studies.size() - 1);
+//
+//        Handler handler = new Handler();
+//        handler.postDelayed( ()-> {
+//
+//            studies.remove(studies.size() - 1);
+//            int scrollPosition = studies.size();
+//            mainListAdapter.notifyItemRemoved(scrollPosition);
+//
+//            isLoading = false;
+//
+//        }, 1000);
+//    }
 
     private void clickEvent() {
 

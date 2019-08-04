@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Toast;
 
 import androidx.lifecycle.ViewModelProviders;
@@ -31,6 +34,7 @@ public class LoginActivity extends BaseActivity<LoginActivityBinding> {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        fadeOutAnimation();
         initViewModel();
 
         loginViewModel.getData().observe(this, login -> {
@@ -42,6 +46,12 @@ public class LoginActivity extends BaseActivity<LoginActivityBinding> {
         loginViewModel.getErrorMessage().observe(this, message -> Toast.makeText(this,message,Toast.LENGTH_LONG).show());
 
         clickEvent();
+    }
+
+    private void fadeOutAnimation(){
+        overridePendingTransition(0,0);
+        Animation animation = AnimationUtils.loadAnimation(this, android.R.anim.fade_in);
+        binding.loginContainer.startAnimation(animation);
     }
 
     private void initViewModel() {
