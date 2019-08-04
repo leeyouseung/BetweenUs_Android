@@ -98,14 +98,20 @@ public class SignupActivity extends BaseActivity<SignupActivityBinding> {
                 return;
             }
 
-            signupViewModel.signup(new SignupRequest(binding.idText.getText().toString(),
-                    binding.passwordText.getText().toString(),
-                    binding.nameText.getText().toString(),
-                    binding.schoolText.getText().toString(),
-                    imgUploadViewModel.images.getValue().get(0),
-                    binding.phoneNumberText.getText().toString(),
-                    Integer.parseInt(binding.gradeText.getText().toString()),
-                    Integer.parseInt(binding.classText.getText().toString())));
+            try {
+                signupViewModel.signup(new SignupRequest(binding.idText.getText().toString(),
+                        binding.passwordText.getText().toString(),
+                        binding.nameText.getText().toString(),
+                        binding.schoolText.getText().toString(),
+                        imgUploadViewModel.images.getValue().get(0),
+                        binding.phoneNumberText.getText().toString(),
+                        Integer.parseInt(binding.gradeText.getText().toString()),
+                        Integer.parseInt(binding.classText.getText().toString())));
+            } catch (NullPointerException e) {
+                Toast.makeText(this, "회원가입을 위한 요소가 다 포함되지 않았습니다.", Toast.LENGTH_SHORT).show();
+
+                e.printStackTrace();
+            }
         });
     }
 

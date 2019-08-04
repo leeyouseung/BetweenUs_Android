@@ -95,7 +95,7 @@
             app:srcCompat="@drawable/dslr_camera_icon" />
 
         <TextView
-            android:id="@+id/place_image"
+            android:id="@+id/place_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -113,9 +113,15 @@
             android:textColor="#0B0E64"
             android:layout_marginTop="10dp"
             android:textSize="24sp"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:scrollHorizontally="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             app:layout_constraintEnd_toEndOf="@+id/linearLayout"
             app:layout_constraintStart_toStartOf="@+id/linearLayout"
-            app:layout_constraintTop_toBottomOf="@+id/place_image"
+            app:layout_constraintTop_toBottomOf="@+id/place_text"
             tools:text="스터디 제목" />
 
         <TextView
@@ -127,7 +133,7 @@
             android:layout_marginEnd="10dp"
             android:fontFamily="@font/nanum_squareb"
             android:text="스터디 내용"
-            android:textSize="20dp"
+            android:textSize="15dp"
             app:layout_constraintEnd_toEndOf="@+id/linearLayout"
             app:layout_constraintStart_toStartOf="@+id/linearLayout"
             app:layout_constraintTop_toBottomOf="@+id/study_title" />
@@ -157,7 +163,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nanum_squareb"
                 android:text="2019-08-27"
-                android:textSize="20dp" />
+                android:textSize="15dp" />
 
             <TextView
                 android:id="@+id/end_term_text"
@@ -165,7 +171,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nanum_squareb"
                 android:text="2019-08-27"
-                android:textSize="20dp" />
+                android:textSize="15dp" />
         </LinearLayout>
 
         <ImageView
@@ -194,7 +200,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nanum_squareb"
                 android:text="19:00"
-                android:textSize="20dp" />
+                android:textSize="15dp" />
 
             <TextView
                 android:id="@+id/end_time_text"
@@ -202,7 +208,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nanum_squareb"
                 android:text="20:00"
-                android:textSize="20dp" />
+                android:textSize="15dp" />
         </LinearLayout>
 
         <TextView

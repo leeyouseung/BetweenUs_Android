@@ -31,6 +31,7 @@
         <activity android:name=".view.activity.ProfileActivity">
         </activity>
         <activity android:name=".view.activity.StudyWriteActivity"></activity>
+        <activity android:name=".view.activity.StudyActivity"></activity>
     </application>
 
 </manifest>

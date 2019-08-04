@@ -5,11 +5,13 @@ public class Location {
     private Integer idx;
     private String place;
     private Integer status;
+    private String endterm;
 
-    public Location(Integer idx, String place, Integer status) {
+    public Location(Integer idx, String place, Integer status, String endterm) {
         this.idx = idx;
         this.place = place;
         this.status = status;
+        this.endterm = endterm;
     }
 
     public Integer getIdx() {
@@ -34,5 +36,13 @@ public class Location {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public String getEndterm() {
+        return endterm;
+    }
+
+    public void setEndterm(String endterm) {
+        this.endterm = endterm;
     }
 }
