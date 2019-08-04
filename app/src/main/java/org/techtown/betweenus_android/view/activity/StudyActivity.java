@@ -45,7 +45,9 @@ public class StudyActivity extends BaseActivity<StudyActivityBinding> {
         binding.placeText.setText(study.getLocation());
         binding.studyTitle.setText(study.getTitle());
         binding.studyDescription.setText(study.getDescription());
-        Glide.with(this).load(study.getImgs().get(0)).into(binding.studyImageview);
+        if (!study.getImgs().isEmpty()) {
+            Glide.with(this).load(study.getImgs().get(0)).into(binding.studyImageview);
+        }
     }
 
     private void clickEvent() {
