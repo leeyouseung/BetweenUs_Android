@@ -43,6 +43,6 @@ public class PlaceAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     }
 
     private void populateItemRows(PlaceViewHolder viewHolder, int position) {
-        viewHolder.binding.placeText.setText(places.get(position));
+
     }
 }

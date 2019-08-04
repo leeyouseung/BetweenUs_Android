@@ -102,7 +102,7 @@ public class SignupActivity extends BaseActivity<SignupActivityBinding> {
                     binding.passwordText.getText().toString(),
                     binding.nameText.getText().toString(),
                     binding.schoolText.getText().toString(),
-                    imgUploadViewModel.images.getValue().getImages().get(0),
+                    imgUploadViewModel.images.getValue().get(0),
                     binding.phoneNumberText.getText().toString(),
                     Integer.parseInt(binding.gradeText.getText().toString()),
                     Integer.parseInt(binding.classText.getText().toString())));

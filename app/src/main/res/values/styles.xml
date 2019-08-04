@@ -12,4 +12,12 @@
         <item name="colorControlNormal">@color/colorText</item>
     </style>
 
+    <style name="TimePickerDialogStyle" parent="@android:style/Widget.Material.Light.TimePicker">
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="android:headerBackground">@color/colorSubDark</item>
+        <item name="android:numbersTextColor">#fff</item>
+        <item name="android:numbersSelectorColor">@color/colorPrimary</item>
+        <item name="android:numbersBackgroundColor">#ffdddddd</item>
+    </style>
+
 </resources>

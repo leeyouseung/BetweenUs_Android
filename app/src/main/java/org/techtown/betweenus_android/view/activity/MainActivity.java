@@ -109,6 +109,6 @@ public class MainActivity extends BaseActivity<MainActivityBinding> {
 
     private void clickEvent() {
 
-        binding.create.setOnClickListener(v -> startActivity(new Intent(this, PlaceActivity.class)));
+        binding.create.setOnClickListener(v -> startActivity(new Intent(this, StudyWriteActivity.class)));
     }
 }

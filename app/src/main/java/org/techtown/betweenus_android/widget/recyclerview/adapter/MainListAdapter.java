@@ -17,12 +17,13 @@ import org.techtown.betweenus_android.view.activity.MainActivity;
 import org.techtown.betweenus_android.widget.recyclerview.viewholder.LoadingViewHolder;
 import org.techtown.betweenus_android.widget.recyclerview.viewholder.MainListViewHolder;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private final int VIEW_TYPE_ITEM = 0;
     private final int VIEW_TYPE_LOADING = 1;
-    private List<Study> studies;
+    private List<Study> studies = new ArrayList<>();
     Context context;
     MainActivity view;
 
@@ -72,7 +73,9 @@ public class MainListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         viewHolder.binding.personnel.setText(study.getPersonnel().toString());
         viewHolder.binding.studyPlace.setText(study.getLocation());
         viewHolder.binding.studyTime.setText(study.getStartTerm() + " ~ " + study.getEndTerm());
-//        Glide.with(view).load(study.getImgs().get(0)).into(viewHolder.binding.studyImageview);
+        if (!study.getImgs().isEmpty()) {
+            Glide.with(view).load(study.getImgs().get(0)).into(viewHolder.binding.studyImageview);
+        }
     }
 
     private void showLoadingView(LoadingViewHolder viewHolder, int position) {

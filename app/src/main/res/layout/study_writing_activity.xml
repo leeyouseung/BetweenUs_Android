@@ -11,8 +11,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="30dp"
-        android:padding="20dp"
         android:background="@drawable/background_main"
+        android:padding="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,8 +23,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/nanum_squareeb"
-            android:paddingLeft="20dp"
             android:paddingVertical="10dp"
+            android:paddingLeft="20dp"
             android:text="스터디 등록"
             android:textColor="#000"
             android:textSize="20dp"
@@ -38,14 +38,15 @@
             android:layout_height="2dp"
             android:layout_marginTop="10dp"
             android:background="@color/colorTextHint"
-            app:layout_constraintTop_toBottomOf="@+id/textView2"
-            tools:layout_editor_absoluteX="40dp"></LinearLayout>
+            app:layout_constraintTop_toBottomOf="@+id/textView2"></LinearLayout>
 
-        <ImageView
+        <com.mikhaellopez.circularimageview.CircularImageView
             android:id="@+id/place_imageview"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="40dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="65dp"
+            android:src="@drawable/dslr_camera_icon"
             app:layout_constraintStart_toStartOf="@+id/textView2"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout"
             app:srcCompat="@mipmap/ic_launcher" />
@@ -54,64 +55,86 @@
             android:id="@+id/title_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/background_text"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/background_text_3"
             android:hint="제목"
+            android:textColor="#000"
             android:padding="7dp"
             android:textSize="15dp"
             app:layout_constraintEnd_toEndOf="@+id/linearLayout"
-            app:layout_constraintStart_toEndOf="@+id/place_imageview"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+            app:layout_constraintStart_toStartOf="@+id/linearLayout"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
 
         <EditText
             android:id="@+id/description_text"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/background_text"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/background_text_2"
             android:gravity="start"
             android:hint="설명"
+            android:textColor="#000"
             android:padding="7dp"
             android:textSize="15dp"
-            app:layout_constraintBottom_toBottomOf="@+id/place_imageview"
+            app:layout_constraintBottom_toTopOf="@+id/write_btn"
             app:layout_constraintEnd_toEndOf="@+id/linearLayout"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/place_imageview"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout"
             app:layout_constraintTop_toBottomOf="@+id/title_text" />
 
         <LinearLayout
             android:id="@+id/linearLayout2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
             android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="@+id/description_text"
-            app:layout_constraintStart_toStartOf="@+id/place_imageview"
-            app:layout_constraintTop_toBottomOf="@+id/place_imageview">
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+            app:layout_constraintStart_toEndOf="@+id/place_imageview"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
 
-            <EditText
+            <TextView
+                android:textColor="#000"
                 android:id="@+id/start_term_text"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/background_text"
-                android:hint="시작기간"
+                android:layout_margin="5dp"
+                android:layout_weight="2"
+                android:background="@drawable/background_text_2"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:scrollHorizontally="true"
+                android:hint="시작 날짜"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 android:padding="7dp"
-                android:textSize="15dp" />
+                android:singleLine="true"
+                android:textSize="12dp" />
 
-            <EditText
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="~" />
+
+            <TextView
+                android:textColor="#000"
                 android:id="@+id/end_term_text"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/background_text"
-                android:hint="종료기간"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:scrollHorizontally="true"
+                android:layout_margin="5dp"
+                android:layout_weight="2"
+                android:background="@drawable/background_text_2"
+                android:hint="종료 날짜"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 android:padding="7dp"
-                android:textSize="15dp" />
+                android:singleLine="true"
+                android:textSize="12dp" />
 
         </LinearLayout>
 
@@ -119,54 +142,107 @@
             android:id="@+id/linearLayout3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="4dp"
             android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="@+id/description_text"
-            app:layout_constraintStart_toStartOf="@+id/place_imageview"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+            app:layout_constraintStart_toEndOf="@+id/place_imageview"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
-            <EditText
+            <TextView
+                android:textColor="#000"
                 android:id="@+id/start_time_text"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/background_text"
-                android:hint="시작시간"
+                android:layout_margin="5dp"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:scrollHorizontally="true"
+                android:layout_weight="2"
+                android:background="@drawable/background_text_2"
+                android:hint="시작 시간"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 android:padding="7dp"
-                android:textSize="15dp" />
+                android:singleLine="true"
+                android:textSize="12dp" />
 
-            <EditText
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="~" />
+
+            <TextView
+                android:textColor="#000"
                 android:id="@+id/end_time_text"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/background_text"
-                android:hint="종료시간"
+                android:layout_margin="5dp"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:scrollHorizontally="true"
+                android:layout_weight="2"
+                android:background="@drawable/background_text_2"
+                android:hint="종료 시간"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 android:padding="7dp"
-                android:textSize="15dp" />
+                android:singleLine="true"
+                android:textSize="12dp" />
 
         </LinearLayout>
 
-        <EditText
-            android:id="@+id/personnel_text"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="45dp"
+            android:background="@drawable/background_text_2"
+            app:layout_constraintStart_toEndOf="@+id/place_imageview"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+            <Spinner
+                android:id="@+id/personnel_spinner"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:listitem="@layout/place_item"></Spinner>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginHorizontal="10dp"
-            android:background="@drawable/background_text"
-            android:hint="참여인원"
-            android:padding="7dp"
-            android:textSize="15dp"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/background_text_2"
             app:layout_constraintEnd_toEndOf="@+id/linearLayout"
-            app:layout_constraintStart_toStartOf="@+id/linearLayout"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+            app:layout_constraintStart_toEndOf="@+id/place_imageview"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+            <Spinner
+                android:id="@+id/place_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:listitem="@layout/place_item"></Spinner>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
             android:id="@+id/write_btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
             android:background="@drawable/button_login"
             android:gravity="center"
             android:padding="12dp"

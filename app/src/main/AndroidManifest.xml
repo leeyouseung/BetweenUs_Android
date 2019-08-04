@@ -30,7 +30,6 @@
         </activity>
         <activity android:name=".view.activity.ProfileActivity">
         </activity>
-        <activity android:name=".view.activity.PlaceActivity"></activity>
         <activity android:name=".view.activity.StudyWriteActivity"></activity>
     </application>
 

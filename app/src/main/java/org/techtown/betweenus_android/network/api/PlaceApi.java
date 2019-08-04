@@ -1,5 +1,6 @@
 package org.techtown.betweenus_android.network.api;
 
+import org.techtown.betweenus_android.model.Location;
 import org.techtown.betweenus_android.network.Response;
 
 import java.util.List;
@@ -16,7 +17,7 @@ public interface PlaceApi {
     String URL = "/location";
 
     @GET(URL)
-    Single<retrofit2.Response<Response<List<String>>>> getLocation(@Header("x-access-token") String token);
+    Single<retrofit2.Response<Response<List<Location>>>> getLocation(@Header("x-access-token") String token);
 
     @POST(URL)
     Single<retrofit2.Response<Response>> postLocation();

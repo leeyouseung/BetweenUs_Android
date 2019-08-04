@@ -8,6 +8,8 @@ import org.techtown.betweenus_android.model.Image;
 import org.techtown.betweenus_android.network.api.ImgUploadApi;
 import org.techtown.betweenus_android.network.request.ImgUploadRequest;
 
+import java.util.List;
+
 import io.reactivex.Single;
 
 public class ImgUploadClient extends BaseClient<ImgUploadApi> {
@@ -22,7 +24,7 @@ public class ImgUploadClient extends BaseClient<ImgUploadApi> {
         return api.profileImgUpload(imgUploadRequest.getFile()).map(getResponseObjectsFunction());
     }
 
-    public Single<Image> studyImgUpload(ImgUploadRequest imgUploadRequest) {
+    public Single<List<String>> studyImgUpload(ImgUploadRequest imgUploadRequest) {
         return api.studyImgUpload(imgUploadRequest.getFile()).map(getResponseObjectsFunction());
     }
 }

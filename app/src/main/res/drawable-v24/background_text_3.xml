@@ -2,24 +2,24 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <shape android:shape="rectangle">
-            <corners android:topLeftRadius="10dp"
-                android:topRightRadius="10dp"/>
             <gradient
                 android:angle="0"
-                android:startColor="@color/colorTextHint"
-                android:endColor="@color/colorTextHint"/>
+                android:startColor="#a0696969"
+                android:endColor="#a0696969"/>
             <padding
-                android:top="3dp" />
+                android:left="2px"
+                android:right="2px"
+                android:top="2px" />
         </shape>
     </item>
 
     <item>
         <shape android:shape="rectangle">
             <solid android:color="?android:textColorPrimaryInverse" />
-            <corners android:topLeftRadius="10dp"
-                android:topRightRadius="10dp"/>
             <padding
-                android:top="10dp" />
+                android:left="1px"
+                android:right="1px"
+                android:top="1px" />
         </shape>
     </item>
 </layer-list>

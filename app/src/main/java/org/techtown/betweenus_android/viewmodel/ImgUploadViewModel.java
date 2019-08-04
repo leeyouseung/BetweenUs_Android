@@ -12,13 +12,14 @@ import org.techtown.betweenus_android.network.client.ImgUploadClient;
 import org.techtown.betweenus_android.network.request.ImgUploadRequest;
 
 import java.io.File;
+import java.util.List;
 
-public class ImgUploadViewModel extends BaseViewModel<Image> {
+public class ImgUploadViewModel extends BaseViewModel<List<String>> {
 
     public MutableLiveData<Uri> uri = new MutableLiveData<>();
     public MutableLiveData<File> file = new MutableLiveData<>();
 
-    public MutableLiveData<Image> images = new MutableLiveData<>();
+    public MutableLiveData<List<String>> images = new MutableLiveData<>();
 
     private ImgUploadClient imgUploadClient;
 
