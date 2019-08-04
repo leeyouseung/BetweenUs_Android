@@ -90,7 +90,9 @@ public class StudyWriteActivity extends BaseActivity<StudyWritingActivityBinding
             places.add("스터디 장소");
 
             for (Location location : locations) {
-                places.add(location.getPlace());
+                if (location.getStatus() == 0) {
+                    places.add(location.getPlace());
+                }
             }
 
             ArrayAdapter placeAdapter = new ArrayAdapter(this,R.layout.place_item,places);

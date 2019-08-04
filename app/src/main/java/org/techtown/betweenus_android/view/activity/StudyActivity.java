@@ -36,6 +36,7 @@ public class StudyActivity extends BaseActivity<StudyActivityBinding> {
     }
 
     private void initText() {
+        binding.studyTitle.setSelected(true);
         binding.startTermText.setText(study.getStartTerm().split(" ")[0]);
         binding.endTermText.setText(study.getEndTerm().split(" ")[0]);
         binding.startTimeText.setText(study.getStartTime());
