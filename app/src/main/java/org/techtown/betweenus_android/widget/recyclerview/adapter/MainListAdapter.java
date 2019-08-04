@@ -1,6 +1,7 @@
 package org.techtown.betweenus_android.widget.recyclerview.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import com.bumptech.glide.Glide;
 import org.techtown.betweenus_android.R;
 import org.techtown.betweenus_android.model.Study;
 import org.techtown.betweenus_android.view.activity.MainActivity;
+import org.techtown.betweenus_android.view.activity.StudyActivity;
 import org.techtown.betweenus_android.widget.recyclerview.viewholder.LoadingViewHolder;
 import org.techtown.betweenus_android.widget.recyclerview.viewholder.MainListViewHolder;
 
@@ -76,6 +78,12 @@ public class MainListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         if (!study.getImgs().isEmpty()) {
             Glide.with(view).load(study.getImgs().get(0)).into(viewHolder.binding.studyImageview);
         }
+
+        viewHolder.binding.studyCardView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, StudyActivity.class);
+            intent.putExtra("study",study);
+            context.startActivity(intent);
+        });
     }
 
     private void showLoadingView(LoadingViewHolder viewHolder, int position) {

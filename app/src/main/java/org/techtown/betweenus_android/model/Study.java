@@ -1,8 +1,9 @@
 package org.techtown.betweenus_android.model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Study {
+public class Study implements Serializable {
     private Integer idx;
     private String memberId;
     private String title;
