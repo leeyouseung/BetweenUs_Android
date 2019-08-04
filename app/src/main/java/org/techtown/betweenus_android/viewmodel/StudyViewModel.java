@@ -2,17 +2,17 @@ package org.techtown.betweenus_android.viewmodel;
 
 import android.content.Context;
 
+import androidx.lifecycle.MutableLiveData;
+
 import org.techtown.betweenus_android.base.BaseViewModel;
 import org.techtown.betweenus_android.model.Study;
 import org.techtown.betweenus_android.network.client.StudyClient;
+import org.techtown.betweenus_android.network.request.StudyApplyRequest;
 import org.techtown.betweenus_android.network.request.StudyRequest;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class StudyViewModel extends BaseViewModel<List<Study>> {
-
-    public Integer locationIdx;
 
     private StudyClient studyClient;
 

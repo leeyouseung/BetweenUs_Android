@@ -2,17 +2,27 @@ package org.techtown.betweenus_android.view.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
+
+import androidx.lifecycle.ViewModelProviders;
 
 import com.bumptech.glide.Glide;
 
 import org.techtown.betweenus_android.R;
 import org.techtown.betweenus_android.base.BaseActivity;
 import org.techtown.betweenus_android.databinding.StudyActivityBinding;
+import org.techtown.betweenus_android.manager.QR;
+import org.techtown.betweenus_android.manager.ViewModelFactory;
 import org.techtown.betweenus_android.model.Study;
+import org.techtown.betweenus_android.network.request.StudyApplyRequest;
+import org.techtown.betweenus_android.viewmodel.StudyApplyViewModel;
+import org.techtown.betweenus_android.viewmodel.StudyViewModel;
 
 public class StudyActivity extends BaseActivity<StudyActivityBinding> {
 
     private Study study;
+
+    private StudyApplyViewModel studyApplyViewModel;
 
     @Override
     protected int layoutId() {
@@ -23,11 +33,21 @@ public class StudyActivity extends BaseActivity<StudyActivityBinding> {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        initViewModel();
         initIntent();
-
         initText();
 
+        studyApplyViewModel.getData().observe(this, url -> {
+            new QR(this).setUrl(url);
+            Toast.makeText(this, "신청했습니다",Toast.LENGTH_SHORT);
+            startActivity(new Intent(this, MainActivity.class));
+        });
+
         clickEvent();
+    }
+
+    private void initViewModel() {
+        studyApplyViewModel = ViewModelProviders.of(this, new ViewModelFactory(this)).get(StudyApplyViewModel.class);
     }
 
     private void initIntent() {
@@ -52,8 +72,6 @@ public class StudyActivity extends BaseActivity<StudyActivityBinding> {
     }
 
     private void clickEvent() {
-        binding.applyBtn.setOnClickListener(v -> {
-
-        });
+        binding.applyBtn.setOnClickListener(v -> studyApplyViewModel.postCreateApplyStudy(new StudyApplyRequest(study.getIdx())));
     }
 }
