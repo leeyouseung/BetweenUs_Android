@@ -16,13 +16,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:textColor="@color/colorText"
         android:id="@+id/personnel_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="8dp"
         android:text="1 / 10"
-        android:textColor="@color/colorTextHint"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -38,6 +38,7 @@
         app:srcCompat="@drawable/dslr_camera_icon" />
 
     <TextView
+        android:textColor="@color/colorText"
         android:id="@+id/place_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -70,6 +71,7 @@
     <TextView
         android:gravity="center"
         android:id="@+id/study_description"
+        android:textColor="@color/colorText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -102,6 +104,7 @@
         app:layout_constraintTop_toTopOf="@+id/imageView6">
 
         <TextView
+            android:textColor="@color/colorText"
             android:id="@+id/start_term_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -110,6 +113,7 @@
             android:textSize="15dp" />
 
         <TextView
+            android:textColor="@color/colorText"
             android:id="@+id/end_term_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -139,6 +143,7 @@
         app:layout_constraintTop_toTopOf="@+id/imageView7">
 
         <TextView
+            android:textColor="@color/colorText"
             android:id="@+id/start_time_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -147,6 +152,7 @@
             android:textSize="15dp" />
 
         <TextView
+            android:textColor="@color/colorText"
             android:id="@+id/end_time_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
