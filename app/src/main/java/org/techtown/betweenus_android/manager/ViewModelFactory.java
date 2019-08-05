@@ -5,6 +5,7 @@ import android.content.Context;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
+import org.techtown.betweenus_android.viewmodel.ApplyStudyViewModel;
 import org.techtown.betweenus_android.viewmodel.ImgUploadViewModel;
 import org.techtown.betweenus_android.viewmodel.LoginViewModel;
 import org.techtown.betweenus_android.viewmodel.MainViewModel;
@@ -12,6 +13,7 @@ import org.techtown.betweenus_android.viewmodel.PlaceViewModel;
 import org.techtown.betweenus_android.viewmodel.ProfileViewModel;
 import org.techtown.betweenus_android.viewmodel.SignupViewModel;
 import org.techtown.betweenus_android.viewmodel.StudyApplyViewModel;
+import org.techtown.betweenus_android.viewmodel.StudyManageViewModel;
 import org.techtown.betweenus_android.viewmodel.StudyViewModel;
 
 /**
@@ -44,6 +46,10 @@ public class ViewModelFactory extends ViewModelProvider.NewInstanceFactory {
             return (T) new PlaceViewModel(context);
         } else if (modelClass == StudyApplyViewModel.class) {
             return (T) new StudyApplyViewModel(context);
+        } else if (modelClass == ApplyStudyViewModel.class) {
+            return (T) new ApplyStudyViewModel(context);
+        } else if (modelClass == StudyManageViewModel.class) {
+            return (T) new StudyManageViewModel(context);
         } else {
             return super.create(modelClass);
         }

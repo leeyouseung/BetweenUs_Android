@@ -35,6 +35,9 @@
         <activity android:name=".view.activity.StudyActivity">
         </activity>
         <activity android:name=".view.activity.LoginActivity" />
+        <activity android:name=".view.activity.ApplyStudyActivity"></activity>
+        <activity android:name=".view.activity.FoundStudyActivity"></activity>
+        <activity android:name=".view.activity.StudyManageActivity"></activity>
     </application>
 
 </manifest>

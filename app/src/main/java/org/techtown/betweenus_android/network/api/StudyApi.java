@@ -1,6 +1,7 @@
 package org.techtown.betweenus_android.network.api;
 
 import org.techtown.betweenus_android.model.Study;
+import org.techtown.betweenus_android.model.StudyList;
 import org.techtown.betweenus_android.network.Response;
 import org.techtown.betweenus_android.network.request.StudyApplyRequest;
 import org.techtown.betweenus_android.network.request.StudyRequest;
@@ -25,7 +26,7 @@ public interface StudyApi {
                                                          @Body StudyRequest studyRequest);
 
     @GET("/study/me")
-    Single<retrofit2.Response<Response>> getMyStudy();
+    Single<retrofit2.Response<Response<StudyList>>> getMyStudy(@Header("x-access-token") String token);
 
     @POST("/study/apply")
     Single<retrofit2.Response<Response<String>>> postCreateStudyApply(@Header("x-access-token") String token,

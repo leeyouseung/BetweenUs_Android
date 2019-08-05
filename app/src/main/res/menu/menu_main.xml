@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item
-        android:id="@+id/menu_found"
-        android:icon="@drawable/ic_home_black_24dp"
-        android:title="개설한 스터디" />
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_home"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="메인화면" />
 
-    <item
-        android:id="@+id/menu_apply"
-        android:icon="@drawable/ic_group_black_24dp"
-        android:title="신청한 스터디" />
+        <item
+            android:id="@+id/menu_found"
+            android:icon="@drawable/ic_school_black_24dp"
+            android:title="개설 스터디" />
+
+        <item
+            android:id="@+id/menu_apply"
+            android:icon="@drawable/ic_group_black_24dp"
+            android:title="신청 스터디" />
+    </group>
 </menu>

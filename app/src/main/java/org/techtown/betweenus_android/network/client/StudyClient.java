@@ -3,6 +3,7 @@ package org.techtown.betweenus_android.network.client;
 import org.techtown.betweenus_android.base.BaseClient;
 import org.techtown.betweenus_android.manager.Token;
 import org.techtown.betweenus_android.model.Study;
+import org.techtown.betweenus_android.model.StudyList;
 import org.techtown.betweenus_android.network.api.StudyApi;
 import org.techtown.betweenus_android.network.request.StudyApplyRequest;
 import org.techtown.betweenus_android.network.request.StudyRequest;
@@ -28,5 +29,9 @@ public class StudyClient extends BaseClient<StudyApi> {
 
     public Single<String> postCreateApplyStudy(Token token, StudyApplyRequest studyApplyRequest) {
         return api.postCreateStudyApply(token.getToken(), studyApplyRequest).map(getResponseObjectsFunction());
+    }
+
+    public Single<StudyList> getMyStudy(Token token) {
+        return api.getMyStudy(token.getToken()).map(getResponseObjectsFunction());
     }
 }

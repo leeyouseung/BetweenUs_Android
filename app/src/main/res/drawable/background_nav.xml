@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="0"
+                android:startColor="@color/colorTextHint"
+                android:endColor="@color/colorTextHint"/>
+            <padding
+                android:top="1dp" />
+        </shape>
+    </item>
+
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="?android:textColorPrimaryInverse" />
+            <padding
+                android:top="2dp" />
+        </shape>
+    </item>
+</layer-list>

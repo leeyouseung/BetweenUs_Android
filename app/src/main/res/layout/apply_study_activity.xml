@@ -6,8 +6,7 @@
     <androidx.drawerlayout.widget.DrawerLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/main"
-        tools:context=".view.activity.MainActivity">
+        android:id="@+id/main">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -31,7 +30,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/background_search_edittext"
-                android:hint="스터디 검색"
+                android:hint="신청한 스터디 검색"
                 android:paddingStart="10dp"
                 android:textSize="15sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -61,27 +60,16 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/study_recycler_view"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="0dp"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView2"
-                tools:listitem="@layout/study_item" />
-
-            <ImageView
-                android:id="@+id/create"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="20dp"
-                android:background="@drawable/background_circle"
-                android:padding="20dp"
-                android:src="@drawable/ic_add"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                tools:listitem="@layout/qr_item"
+                />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

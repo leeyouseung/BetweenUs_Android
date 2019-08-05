@@ -3,18 +3,17 @@ package org.techtown.betweenus_android.view.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.navigation.NavigationView;
 
 import org.techtown.betweenus_android.R;
 import org.techtown.betweenus_android.base.BaseActivity;
@@ -29,7 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainActivity extends BaseActivity<MainActivityBinding> {
+public class MainActivity extends BaseActivity<MainActivityBinding> implements NavigationView.OnNavigationItemSelectedListener {
 
     private List<Study> studies = new ArrayList<>();
     private MainViewModel mainViewModel;
@@ -49,6 +48,7 @@ public class MainActivity extends BaseActivity<MainActivityBinding> {
         super.onCreate(savedInstanceState);
 
         initViewModel();
+        binding.navView.setNavigationItemSelectedListener(this::onNavigationItemSelected);
         studyViewModel.getStudyList();
 
         studyViewModel.getData().observe(this, studyList -> {
@@ -125,26 +125,6 @@ public class MainActivity extends BaseActivity<MainActivityBinding> {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        Intent intent;
-        switch (id) {
-            case R.id.menu_found:
-//                intent = new Intent(this, .class);
-//                startActivity(intent);
-                break;
-            case R.id.menu_apply:
-//                intent = new Intent(this, .class);
-//                startActivity(intent);
-                break;
-            default:
-                Toast.makeText(this, "문제가 발생하였습니다", Toast.LENGTH_SHORT).show();
-        }
-
-        return false;
-    }
-
-    @Override
     public void onBackPressed() {
 
         if (binding.main.isDrawerOpen(GravityCompat.START)) {
@@ -153,5 +133,33 @@ public class MainActivity extends BaseActivity<MainActivityBinding> {
         else {
             super.onBackPressed();
         }
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+        int id = item.getItemId();
+        Intent intent;
+        switch (id) {
+            case R.id.menu_home:
+                intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.menu_found:
+                intent = new Intent(this, FoundStudyActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.menu_apply:
+                intent = new Intent(this, ApplyStudyActivity.class);
+                startActivity(intent);
+                break;
+            default:
+                Toast.makeText(this, "문제가 발생하였습니다", Toast.LENGTH_SHORT).show();
+        }
+
+        overridePendingTransition(0, 0);
+        binding.main.closeDrawers();
+
+        return false;
     }
 }
