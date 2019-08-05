@@ -17,7 +17,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         android:usesCleartextTraffic="true">
-        <activity android:name=".view.activity.LoginActivity">
+        <activity android:name=".view.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,8 +30,11 @@
         </activity>
         <activity android:name=".view.activity.ProfileActivity">
         </activity>
-        <activity android:name=".view.activity.StudyWriteActivity"></activity>
-        <activity android:name=".view.activity.StudyActivity"></activity>
+        <activity android:name=".view.activity.StudyWriteActivity">
+        </activity>
+        <activity android:name=".view.activity.StudyActivity">
+        </activity>
+        <activity android:name=".view.activity.LoginActivity" />
     </application>
 
 </manifest>
