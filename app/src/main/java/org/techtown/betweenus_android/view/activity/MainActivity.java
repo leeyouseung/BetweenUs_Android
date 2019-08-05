@@ -4,9 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,7 +36,6 @@ public class MainActivity extends BaseActivity<MainActivityBinding> {
     private StudyViewModel studyViewModel;
     MainListAdapter mainListAdapter = new MainListAdapter(studies, this, this);
 
-    // List 에 넣기 위한 index 선언
     int index = 0;
     boolean isLoading = false;
 
@@ -97,7 +101,6 @@ public class MainActivity extends BaseActivity<MainActivityBinding> {
         });
     }
 
-    // 무한 스크롤 기능 구현
     private void loadMore() {
         studies.add(null);
         mainListAdapter.notifyItemInserted(studies.size() - 1);
@@ -117,5 +120,38 @@ public class MainActivity extends BaseActivity<MainActivityBinding> {
     private void clickEvent() {
 
         binding.create.setOnClickListener(v -> startActivity(new Intent(this, StudyWriteActivity.class)));
+
+        binding.menuBtn.setOnClickListener(v -> binding.main.openDrawer(GravityCompat.START));
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        Intent intent;
+        switch (id) {
+            case R.id.menu_found:
+//                intent = new Intent(this, .class);
+//                startActivity(intent);
+                break;
+            case R.id.menu_apply:
+//                intent = new Intent(this, .class);
+//                startActivity(intent);
+                break;
+            default:
+                Toast.makeText(this, "문제가 발생하였습니다", Toast.LENGTH_SHORT).show();
+        }
+
+        return false;
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        if (binding.main.isDrawerOpen(GravityCompat.START)) {
+            binding.main.closeDrawers();
+        }
+        else {
+            super.onBackPressed();
+        }
     }
 }
