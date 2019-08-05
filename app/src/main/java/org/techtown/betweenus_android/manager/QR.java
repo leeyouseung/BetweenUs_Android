@@ -42,7 +42,7 @@ public class QR extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
         String result = "";
 
-        Cursor cursor = db.rawQuery("SELECT * FROM QR WHERE idx='"+idx+"''", null);
+        Cursor cursor = db.rawQuery("SELECT * FROM QR WHERE idx="+idx+"", null);
         while (cursor.moveToNext()) {
             result = cursor.getString(cursor.getColumnIndex("url"));
         }

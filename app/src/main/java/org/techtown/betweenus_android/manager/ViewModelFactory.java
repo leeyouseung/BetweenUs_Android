@@ -9,6 +9,7 @@ import org.techtown.betweenus_android.viewmodel.ApplyStudyViewModel;
 import org.techtown.betweenus_android.viewmodel.ImgUploadViewModel;
 import org.techtown.betweenus_android.viewmodel.LoginViewModel;
 import org.techtown.betweenus_android.viewmodel.MainViewModel;
+import org.techtown.betweenus_android.viewmodel.MemberViewModel;
 import org.techtown.betweenus_android.viewmodel.PlaceViewModel;
 import org.techtown.betweenus_android.viewmodel.ProfileViewModel;
 import org.techtown.betweenus_android.viewmodel.SignupViewModel;
@@ -50,6 +51,8 @@ public class ViewModelFactory extends ViewModelProvider.NewInstanceFactory {
             return (T) new ApplyStudyViewModel(context);
         } else if (modelClass == StudyManageViewModel.class) {
             return (T) new StudyManageViewModel(context);
+        } else if (modelClass == MemberViewModel.class) {
+            return (T) new MemberViewModel(context);
         } else {
             return super.create(modelClass);
         }

@@ -48,6 +48,7 @@ public class MainActivity extends BaseActivity<MainActivityBinding> implements N
         super.onCreate(savedInstanceState);
 
         initViewModel();
+        initText();
         binding.navView.setNavigationItemSelectedListener(this::onNavigationItemSelected);
         studyViewModel.getStudyList();
 
@@ -62,6 +63,10 @@ public class MainActivity extends BaseActivity<MainActivityBinding> implements N
     private void initViewModel() {
         mainViewModel = ViewModelProviders.of(this, new ViewModelFactory(this)).get(MainViewModel.class);
         studyViewModel = ViewModelProviders.of(this, new ViewModelFactory(this)).get(StudyViewModel.class);
+    }
+
+    private void initText() {
+
     }
 
     private void recyclerview() {

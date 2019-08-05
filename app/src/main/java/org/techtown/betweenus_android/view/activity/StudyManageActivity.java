@@ -2,10 +2,15 @@ package org.techtown.betweenus_android.view.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
+
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
 import org.techtown.betweenus_android.R;
 import org.techtown.betweenus_android.base.BaseActivity;
@@ -67,6 +72,10 @@ public class StudyManageActivity extends BaseActivity<StudyManageActivityBinding
             setFrag(2);
             changeBtn(2);
         });
+
+        binding.scan.setOnClickListener(v -> new IntentIntegrator(this).initiateScan());
+
+        binding.back.setOnClickListener(v -> finish());
     }
 
     public void setFrag(int n){
@@ -78,7 +87,7 @@ public class StudyManageActivity extends BaseActivity<StudyManageActivityBinding
                 tran.commit();
                 break;
             case 1:
-                tran.replace(R.id.frame, new StudyManageAllMemberFragment());
+                tran.replace(R.id.frame, new StudyManageAllMemberFragment(study.getIdx(),this));
                 tran.commit();
                 break;
             case 2:
@@ -106,6 +115,27 @@ public class StudyManageActivity extends BaseActivity<StudyManageActivityBinding
                 binding.allMember.setImageResource(R.drawable.ic_group_none_24dp);
                 binding.okMember.setImageResource(R.drawable.ic_person_add_black_24dp);
                 break;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode,resultCode,data);
+
+        if (result != null) {
+            String contents = result.getContents();
+            if(contents != null) {
+                Toast.makeText(this,"스캔 완료",Toast.LENGTH_LONG).show();
+                new IntentIntegrator(this).initiateScan();
+            }
+            else {
+                return;
+            }
+        }
+        else {
+            return;
         }
     }
 }

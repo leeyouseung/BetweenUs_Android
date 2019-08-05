@@ -23,8 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private final int VIEW_TYPE_ITEM = 0;
-    private final int VIEW_TYPE_LOADING = 1;
+
     private List<Study> studies = new ArrayList<>();
     Context context;
     MainActivity view;
@@ -38,11 +37,7 @@ public class MainListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        if (viewType == VIEW_TYPE_ITEM) {
-            return new MainListViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.study_item, parent, false));
-        } else {
-            return new LoadingViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.study_loading, parent, false));
-        }
+        return new MainListViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.study_item, parent, false));
     }
 
     @Override
@@ -51,12 +46,7 @@ public class MainListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
         Study study = studies.get(position);
 
-        if (holder instanceof MainListViewHolder) {
-            populateItemRows((MainListViewHolder) holder, position, study);
-        } else if (holder instanceof LoadingViewHolder) {
-            showLoadingView((LoadingViewHolder) holder, position);
-        }
-
+        populateItemRows((MainListViewHolder) holder, study);
     }
 
     @Override
@@ -64,12 +54,7 @@ public class MainListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         return studies.size();
     }
 
-    @Override
-    public int getItemViewType(int position) {
-        return studies.get(position) == null ? VIEW_TYPE_LOADING : VIEW_TYPE_ITEM;
-    }
-
-    private void populateItemRows(MainListViewHolder viewHolder, int position, Study study) {
+    private void populateItemRows(MainListViewHolder viewHolder, Study study) {
         viewHolder.binding.studyTitle.setText(study.getTitle());
         viewHolder.binding.currentPerson.setText(study.getCurrentPerson().toString() + " / ");
         viewHolder.binding.personnel.setText(study.getPersonnel().toString());
@@ -84,9 +69,5 @@ public class MainListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             intent.putExtra("study",study);
             context.startActivity(intent);
         });
-    }
-
-    private void showLoadingView(LoadingViewHolder viewHolder, int position) {
-
     }
 }

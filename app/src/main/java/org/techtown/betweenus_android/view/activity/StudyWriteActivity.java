@@ -152,6 +152,8 @@ public class StudyWriteActivity extends BaseActivity<StudyWritingActivityBinding
                     placeIdx,imgUploadViewModel.images.getValue()
             ));
         });
+
+        binding.back.setOnClickListener(v -> finish());
     }
 
     private void dialog() {

@@ -75,5 +75,7 @@ public class StudyActivity extends BaseActivity<StudyActivityBinding> {
 
     private void clickEvent() {
         binding.applyBtn.setOnClickListener(v -> studyApplyViewModel.postCreateApplyStudy(new StudyApplyRequest(study.getIdx())));
+
+        binding.back.setOnClickListener(v -> finish());
     }
 }

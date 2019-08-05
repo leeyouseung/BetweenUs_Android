@@ -38,6 +38,7 @@
         <activity android:name=".view.activity.ApplyStudyActivity"></activity>
         <activity android:name=".view.activity.FoundStudyActivity"></activity>
         <activity android:name=".view.activity.StudyManageActivity"></activity>
+        <activity android:name=".view.activity.QrActivity"></activity>
     </application>
 
 </manifest>
