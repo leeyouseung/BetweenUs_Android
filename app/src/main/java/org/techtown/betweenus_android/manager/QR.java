@@ -5,20 +5,23 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 public class QR extends SQLiteOpenHelper {
 
     CurrentUser user;
+    Context context;
 
     public QR(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
 
         user = new CurrentUser(context,name,factory,version);
+        this.context = context;
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE QR (idx INTEGER PRIMARY KEY, url TEXT, currentUser TEXT);");
+        db.execSQL("CREATE TABLE QR (idx Integer PRIMARY KEY, url TEXT, currentUser TEXT);");
     }
 
     @Override
@@ -46,7 +49,14 @@ public class QR extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
         String result = "";
 
-        Cursor cursor = db.rawQuery("SELECT * FROM QR WHERE idx="+idx+" AND currentUser='"+user.getResult().getId()+"'", null);
+        Cursor cursor = null;
+
+        try {
+            cursor = db.rawQuery("SELECT * FROM QR WHERE idx="+idx+" AND currentUser='"+user.getResult().getId()+"'", null);
+        }
+        catch (Exception exception) {
+            Toast.makeText(context,"참여중인 스터디가 없습니다",Toast.LENGTH_SHORT).show();
+        }
         while (cursor.moveToNext()) {
             result = cursor.getString(cursor.getColumnIndex("url"));
         }

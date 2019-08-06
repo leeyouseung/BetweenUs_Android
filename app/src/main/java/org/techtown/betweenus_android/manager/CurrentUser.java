@@ -59,7 +59,7 @@ public class CurrentUser extends SQLiteOpenHelper {
 
         Member member = new Member();
 
-        Cursor cursor = db.rawQuery("SELECT * FROM QR WHERE token='"+new Token(context).getToken()+"'", null);
+        Cursor cursor = db.rawQuery("SELECT * FROM User WHERE token='"+new Token(context).getToken()+"'", null);
         while (cursor.moveToNext()) {
             studentidx = cursor.getInt(cursor.getColumnIndex("studentidx"));
             name = cursor.getString(cursor.getColumnIndex("name"));
