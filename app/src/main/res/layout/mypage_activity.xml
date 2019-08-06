@@ -21,15 +21,13 @@
 
         <ImageView
             android:id="@+id/join_code_btn"
-            android:layout_width="408dp"
-            android:layout_height="216dp"
+            android:layout_width="431dp"
+            android:layout_height="168dp"
 
-            android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.134"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/background_yellow"
-            app:srcCompat="@drawable/background_text_3" />
+            app:srcCompat="@drawable/background_round" />
 
         <com.mikhaellopez.circularimageview.CircularImageView
             android:id="@+id/user_imageview"
@@ -48,28 +46,28 @@
             android:id="@+id/grade_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="96dp"
+            android:layout_marginTop="80dp"
             android:layout_marginEnd="8dp"
             android:fontFamily="@font/nanum_squareb"
             android:text="G"
             android:textColor="@color/colorBlack"
-            android:textSize="20dp"
+            android:textSize="18dp"
             app:layout_constraintEnd_toEndOf="@+id/join_code_btn"
-            app:layout_constraintHorizontal_bias="0.41"
+            app:layout_constraintHorizontal_bias="0.420"
             app:layout_constraintStart_toStartOf="@+id/join_code_btn"
             app:layout_constraintTop_toBottomOf="@+id/user_imageview" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="96dp"
+            android:layout_marginTop="80dp"
             android:layout_marginEnd="8dp"
             android:fontFamily="@font/nanum_squareb"
             android:text="학년"
             android:textColor="@color/colorBlack"
-            android:textSize="20dp"
+            android:textSize="18dp"
             app:layout_constraintEnd_toEndOf="@+id/join_code_btn"
-            app:layout_constraintHorizontal_bias="0.473"
+            app:layout_constraintHorizontal_bias="0.480"
             app:layout_constraintStart_toStartOf="@+id/join_code_btn"
             app:layout_constraintTop_toBottomOf="@+id/user_imageview" />
 
@@ -77,28 +75,28 @@
             android:id="@+id/class_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="96dp"
+            android:layout_marginTop="80dp"
             android:layout_marginEnd="8dp"
             android:fontFamily="@font/nanum_squareb"
             android:text="C"
             android:textColor="@color/colorBlack"
-            android:textSize="20dp"
+            android:textSize="18dp"
             app:layout_constraintEnd_toEndOf="@+id/join_code_btn"
-            app:layout_constraintHorizontal_bias="0.563"
+            app:layout_constraintHorizontal_bias="0.550"
             app:layout_constraintStart_toStartOf="@+id/join_code_btn"
             app:layout_constraintTop_toBottomOf="@+id/user_imageview" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="96dp"
+            android:layout_marginTop="80dp"
             android:layout_marginEnd="8dp"
             android:fontFamily="@font/nanum_squareb"
             android:text="반"
             android:textColor="@color/colorBlack"
-            android:textSize="20dp"
+            android:textSize="18dp"
             app:layout_constraintEnd_toEndOf="@+id/join_code_btn"
-            app:layout_constraintHorizontal_bias="0.607"
+            app:layout_constraintHorizontal_bias="0.590"
             app:layout_constraintStart_toStartOf="@+id/join_code_btn"
             app:layout_constraintTop_toBottomOf="@+id/user_imageview" />
 
@@ -106,19 +104,19 @@
             android:id="@+id/school_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="54dp"
+            android:layout_marginTop="45dp"
             android:layout_marginEnd="8dp"
             android:fontFamily="@font/nanum_squareb"
             android:text="School"
             android:textColor="@color/colorBlack"
-            android:textSize="20dp"
+            android:textSize="16dp"
             app:layout_constraintEnd_toEndOf="@+id/join_code_btn"
             app:layout_constraintHorizontal_bias="0.515"
             app:layout_constraintStart_toStartOf="@+id/join_code_btn"
             app:layout_constraintTop_toBottomOf="@+id/user_imageview" />
 
         <TextView
-            android:id="@+id/re_password_text"
+            android:id="@+id/mypage_name_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -126,7 +124,7 @@
             android:fontFamily="@font/nanum_squareb"
             android:text="Name"
             android:textColor="@color/colorBlack"
-            android:textSize="25dp"
+            android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="@+id/join_code_btn"
             app:layout_constraintHorizontal_bias="0.515"
             app:layout_constraintStart_toStartOf="@+id/join_code_btn"
@@ -140,7 +138,33 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.481"
+            app:layout_constraintHorizontal_bias="0.485"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/join_code_btn"
+            app:srcCompat="@drawable/background_search_edittext" />
+
+        <ImageView
+            android:id="@+id/profile_edit_btn2"
+            android:layout_width="360dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="200dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.485"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/join_code_btn"
+            app:srcCompat="@drawable/background_search_edittext" />
+
+        <ImageView
+            android:id="@+id/profile_edit_btn3"
+            android:layout_width="360dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="108dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.485"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/join_code_btn"
             app:srcCompat="@drawable/background_search_edittext" />

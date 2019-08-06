@@ -2,7 +2,10 @@ package org.techtown.betweenus_android.view.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -10,6 +13,7 @@ import androidx.core.view.GravityCompat;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.navigation.NavigationView;
 
 import org.techtown.betweenus_android.R;
@@ -19,6 +23,7 @@ import org.techtown.betweenus_android.databinding.FoundStudyActivityBinding;
 import org.techtown.betweenus_android.manager.CurrentUser;
 import org.techtown.betweenus_android.manager.Token;
 import org.techtown.betweenus_android.manager.ViewModelFactory;
+import org.techtown.betweenus_android.model.Member;
 import org.techtown.betweenus_android.viewmodel.ApplyStudyViewModel;
 import org.techtown.betweenus_android.widget.recyclerview.adapter.StudyListAdapter;
 
@@ -35,6 +40,7 @@ public class FoundStudyActivity extends BaseActivity<FoundStudyActivityBinding> 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        menuSetting();
         initViewModel();
         binding.navView.setNavigationItemSelectedListener(this::onNavigationItemSelected);
         GridLayoutManager mGridLayoutManager = new GridLayoutManager(this, 2);
@@ -105,5 +111,25 @@ public class FoundStudyActivity extends BaseActivity<FoundStudyActivityBinding> 
         binding.main.closeDrawers();
 
         return false;
+    }
+
+
+    private void menuSetting() {
+
+        CurrentUser currentUser = new CurrentUser(this, "betweenUs.db", null, 2);
+        Member myInfo = currentUser.getResult();
+
+        ImageView profileImage = (ImageView) binding.navView.getHeaderView(0).findViewById(R.id.profile);
+        TextView nameText = (TextView) binding.navView.getHeaderView(0).findViewById(R.id.name);
+        TextView schoolText = (TextView) binding.navView.getHeaderView(0).findViewById(R.id.school);
+
+        Log.d("imgTag", myInfo.getprofileImg());
+        if (!myInfo.getprofileImg().isEmpty()) {
+            Log.d("imgTag", "Pass");
+            Glide.with(this).load(myInfo.getprofileImg()).into(profileImage);
+        }
+
+        nameText.setText(myInfo.getName());
+        schoolText.setText(myInfo.getSchool());
     }
 }
