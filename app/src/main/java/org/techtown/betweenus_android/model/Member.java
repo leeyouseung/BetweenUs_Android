@@ -15,6 +15,10 @@ public class Member {
     @SerializedName("class")
     private Integer schoolClass;
 
+    public Member() {
+
+    }
+
     public Member(String id, String name, String school, String profileimg, String phoneNumber, Integer studentidx, Integer grade, Integer schoolClass) {
         this.id = id;
         this.name = name;

@@ -18,6 +18,8 @@ import com.google.android.material.navigation.NavigationView;
 import org.techtown.betweenus_android.R;
 import org.techtown.betweenus_android.base.BaseActivity;
 import org.techtown.betweenus_android.databinding.MainActivityBinding;
+import org.techtown.betweenus_android.manager.CurrentUser;
+import org.techtown.betweenus_android.manager.Token;
 import org.techtown.betweenus_android.manager.ViewModelFactory;
 import org.techtown.betweenus_android.model.Study;
 import org.techtown.betweenus_android.viewmodel.MainViewModel;
@@ -156,6 +158,12 @@ public class MainActivity extends BaseActivity<MainActivityBinding> implements N
                 break;
             case R.id.menu_apply:
                 intent = new Intent(this, ApplyStudyActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.menu_logout:
+                new CurrentUser(this,"betweenUs.db",null,1).delete();
+                new Token(this).setToken("");
+                intent = new Intent(this, LoginActivity.class);
                 startActivity(intent);
                 break;
             default:

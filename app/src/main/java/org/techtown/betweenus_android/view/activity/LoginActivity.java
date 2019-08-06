@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProviders;
 import org.techtown.betweenus_android.R;
 import org.techtown.betweenus_android.base.BaseActivity;
 import org.techtown.betweenus_android.databinding.LoginActivityBinding;
+import org.techtown.betweenus_android.manager.CurrentUser;
 import org.techtown.betweenus_android.manager.Token;
 import org.techtown.betweenus_android.manager.ViewModelFactory;
 import org.techtown.betweenus_android.network.request.LoginRequest;
@@ -39,6 +40,7 @@ public class LoginActivity extends BaseActivity<LoginActivityBinding> {
 
         loginViewModel.getData().observe(this, login -> {
             new Token(this).setToken(login.getToken());
+            new CurrentUser(this,"betweenUs.db",null,1).insert(login.getInfo());
             Toast.makeText(this,"로그인 성공",Toast.LENGTH_LONG).show();
             startActivity(new Intent(this, MainActivity.class));
         });

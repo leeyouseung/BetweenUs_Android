@@ -6,6 +6,8 @@ public class Login {
 
     private String refreshToken;
 
+    private Member info;
+
     public String getToken() {
         return token;
     }
@@ -20,5 +22,13 @@ public class Login {
 
     public void setRefreshToken(String refreshToken) {
         this.refreshToken = refreshToken;
+    }
+
+    public Member getInfo() {
+        return info;
+    }
+
+    public void setInfo(Member info) {
+        this.info = info;
     }
 }
