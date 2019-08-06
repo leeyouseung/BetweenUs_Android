@@ -34,6 +34,6 @@ public class StudyViewModel extends BaseViewModel<List<Study>> {
     }
 
     public void postQr(String url) {
-        addDisposable(studyClient.postQr(url),getBaseObserver());
+        addDisposable(studyClient.postQr(getToken(), url),getBaseObserver());
     }
 }

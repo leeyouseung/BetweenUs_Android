@@ -39,7 +39,7 @@ public interface StudyApi {
                                                       @Body StudyIdxRequest studyIdxRequest);
 
     @POST
-    Single<retrofit2.Response<Response>> postQr(@Url String url);
+    Single<retrofit2.Response<Response>> postQr(@Header("x-access-token") String token, @Url String url);
 
     @DELETE("/study/apply")
     Single<retrofit2.Response<Response>> deleteStudyMember();
