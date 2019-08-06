@@ -24,7 +24,7 @@ import java.util.List;
 
 public class MainListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private List<Study> studies = new ArrayList<>();
+    private List<Study> studies;
     Context context;
     MainActivity view;
 

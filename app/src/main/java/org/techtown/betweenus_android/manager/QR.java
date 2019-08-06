@@ -57,7 +57,7 @@ public class QR extends SQLiteOpenHelper {
         catch (Exception exception) {
             Toast.makeText(context,"참여중인 스터디가 없습니다",Toast.LENGTH_SHORT).show();
         }
-        
+
         while (cursor.moveToNext()) {
             result = cursor.getString(cursor.getColumnIndex("url"));
         }

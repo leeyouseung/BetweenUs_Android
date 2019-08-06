@@ -56,7 +56,7 @@ public class MainActivity extends BaseActivity<MainActivityBinding> implements N
 
         studyViewModel.getData().observe(this, studyList -> {
             studies = studyList;
-            recyclerview();
+            binding.studyRecyclerView.setAdapter(new MainListAdapter(studies, this, this));
         });
 
         clickEvent();
@@ -69,59 +69,6 @@ public class MainActivity extends BaseActivity<MainActivityBinding> implements N
 
     private void initText() {
 
-    }
-
-    private void recyclerview() {
-        binding.studyRecyclerView.setAdapter(new MainListAdapter(studies, this, this));
-        initScrollListener();
-    }
-
-    private void initScrollListener() {
-
-        binding.studyRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
-            }
-
-            @Override
-            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-
-                LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
-
-                if (dy > 0) {
-                    binding.create.setVisibility(View.INVISIBLE);
-                }
-                else {
-                    binding.create.setVisibility(View.VISIBLE);
-                }
-                if (!isLoading) {
-                    if (linearLayoutManager != null && linearLayoutManager.findLastCompletelyVisibleItemPosition() == studies.size() - 1) {
-                        if (index % 10 == 0) {
-                            loadMore();
-                        }
-                        isLoading = true;
-                    }
-                }
-            }
-        });
-    }
-
-    private void loadMore() {
-        studies.add(null);
-        mainListAdapter.notifyItemInserted(studies.size() - 1);
-
-        Handler handler = new Handler();
-        handler.postDelayed( ()-> {
-
-            studies.remove(studies.size() - 1);
-            int scrollPosition = studies.size();
-            mainListAdapter.notifyItemRemoved(scrollPosition);
-
-            isLoading = false;
-
-        }, 1000);
     }
 
     private void clickEvent() {
