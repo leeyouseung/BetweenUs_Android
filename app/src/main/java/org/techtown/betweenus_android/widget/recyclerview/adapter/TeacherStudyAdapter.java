@@ -7,17 +7,23 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
 import org.techtown.betweenus_android.R;
+import org.techtown.betweenus_android.manager.ViewModelFactory;
+import org.techtown.betweenus_android.model.Member;
 import org.techtown.betweenus_android.model.Study;
 import org.techtown.betweenus_android.view.activity.StudyActivity;
 import org.techtown.betweenus_android.view.activity.TeacherActivity;
+import org.techtown.betweenus_android.viewmodel.MemberViewModel;
+import org.techtown.betweenus_android.viewmodel.StudyViewModel;
 import org.techtown.betweenus_android.widget.recyclerview.viewholder.MainListViewHolder;
 import org.techtown.betweenus_android.widget.recyclerview.viewholder.TeacherListViewHolder;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TeacherStudyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -59,13 +65,29 @@ public class TeacherStudyAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         viewHolder.binding.teacherPersonnel.setText(study.getPersonnel().toString());
         viewHolder.binding.teacherStudyPlace.setText(study.getLocation());
         viewHolder.binding.teacherStudyTime.setText(study.getStartTerm().split(" ")[0] + " ~ " + study.getEndTerm().split(" ")[0]);
-        if(study.getStatus() == 0) {
-            viewHolder.binding.teacherStudyStatus.setText("모집 중");
-            viewHolder.binding.teacherStatusLight.setImageResource(R.drawable.join_light);
-        } else {
-            viewHolder.binding.teacherStudyStatus.setText("진행 중");
-            viewHolder.binding.teacherStatusLight.setImageResource(R.drawable.loading_light);
-        }
+
+        MemberViewModel memberViewModel = ViewModelProviders.of(view, new ViewModelFactory(context)).get(MemberViewModel.class);
+        memberViewModel.getStudyMember(study.getIdx());
+
+        memberViewModel.getData().observe(view, members -> {
+            List<Member> memberList = new ArrayList<>();
+
+            for (Member member: members) {
+                if (member.getStatus() == 1) {
+                    memberList.add(member);
+                }
+            }
+
+            if (memberList.size() > 0) {
+                viewHolder.binding.teacherStudyStatus.setText("수업 중");
+                viewHolder.binding.teacherStatusLight.setImageResource(R.drawable.loading_light);
+            }
+            else {
+                viewHolder.binding.teacherStudyStatus.setText("수업 대기 중");
+                viewHolder.binding.teacherStatusLight.setImageResource(R.drawable.join_light);
+            }
+        });
+
         if (!study.getImgs().isEmpty()) {
             Glide.with(view).load(study.getImgs().get(0)).into(viewHolder.binding.teacherStudyImageview);
         }
