@@ -10,6 +10,7 @@ import org.techtown.betweenus_android.network.request.StudyRequest;
 import java.util.List;
 
 import io.reactivex.Single;
+import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
@@ -22,4 +23,8 @@ public interface MemberApi {
     @GET("/member/study/{studyIdx}")
     Single<retrofit2.Response<Response<List<Member>>>> getStudyMember(@Header("x-access-token") String token,
                                                                       @Path("studyIdx") Integer studyIdx);
+
+    @GET("/member/study/{studyIdx}")
+    Call<Response<List<Member>>> getStudyMemberTeacher(@Header("x-access-token") String token,
+                                                        @Path("studyIdx") Integer studyIdx);
 }
