@@ -144,6 +144,48 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:fontFamily="@font/nanum_squarer"
+            android:text="스터디 기록 조회"
+            android:textColor="@color/colorBlack"
+            android:textSize="18dp"
+            app:layout_constraintBottom_toBottomOf="@+id/profile_edit_btn3"
+            app:layout_constraintEnd_toEndOf="@+id/join_code_btn"
+            app:layout_constraintHorizontal_bias="0.477"
+            app:layout_constraintStart_toStartOf="@+id/join_code_btn"
+            app:layout_constraintTop_toTopOf="@+id/profile_edit_btn3"
+            app:layout_constraintVertical_bias="0.54" />
+
+        <TextView
+            android:id="@+id/profile_edit_text3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/nanum_squarer"
+            android:text="환경설정"
+            android:textColor="@color/colorBlack"
+            android:textSize="18dp"
+            app:layout_constraintBottom_toBottomOf="@+id/profile_edit_btn2"
+            app:layout_constraintEnd_toEndOf="@+id/join_code_btn"
+            app:layout_constraintHorizontal_bias="0.467"
+            app:layout_constraintStart_toStartOf="@+id/join_code_btn"
+            app:layout_constraintTop_toTopOf="@+id/profile_edit_btn2" />
+
+        <ImageView
+            android:id="@+id/profile_edit_arrow3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/profile_edit_btn"
+            app:layout_constraintEnd_toEndOf="@+id/profile_edit_btn"
+            app:layout_constraintTop_toTopOf="@+id/profile_edit_btn"
+            app:srcCompat="@drawable/arrowforward" />
+
+        <TextView
+            android:id="@+id/profile_edit_text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/nanum_squarer"
             android:text="내 프로필 변경"
             android:textColor="@color/colorBlack"
             android:textSize="18dp"
@@ -159,9 +201,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
-            app:layout_constraintBottom_toBottomOf="@+id/profile_edit_btn"
+            app:layout_constraintBottom_toBottomOf="@+id/profile_edit_btn2"
             app:layout_constraintEnd_toEndOf="@+id/profile_edit_btn"
-            app:layout_constraintTop_toTopOf="@+id/profile_edit_btn"
+            app:layout_constraintTop_toTopOf="@+id/profile_edit_btn2"
+            app:srcCompat="@drawable/arrowforward" />
+
+        <ImageView
+            android:id="@+id/profile_edit_arrow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/profile_edit_btn3"
+            app:layout_constraintEnd_toEndOf="@+id/profile_edit_btn"
+            app:layout_constraintTop_toTopOf="@+id/profile_edit_btn3"
+            app:layout_constraintVertical_bias="0.473"
             app:srcCompat="@drawable/arrowforward" />
 
         <ImageView
@@ -173,6 +226,28 @@
             app:layout_constraintStart_toStartOf="@+id/background_yellow"
             app:layout_constraintTop_toTopOf="@+id/background_yellow"
             app:srcCompat="@drawable/ic_arrow_back_24dp" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="28dp"
+            app:layout_constraintBottom_toBottomOf="@+id/profile_edit_btn3"
+            app:layout_constraintStart_toStartOf="@+id/profile_edit_btn3"
+            app:layout_constraintTop_toTopOf="@+id/profile_edit_btn3"
+            app:layout_constraintVertical_bias="0.482"
+            app:srcCompat="@drawable/ic_library_books_black_24dp" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="28dp"
+            app:layout_constraintBottom_toBottomOf="@+id/profile_edit_btn2"
+            app:layout_constraintStart_toStartOf="@+id/profile_edit_btn2"
+            app:layout_constraintTop_toTopOf="@+id/profile_edit_btn2"
+            app:layout_constraintVertical_bias="0.537"
+            app:srcCompat="@drawable/ic_settings_black_24dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
