@@ -84,6 +84,12 @@ public class MainActivity extends BaseActivity<MainActivityBinding> implements N
         binding.create.setOnClickListener(v -> startActivity(new Intent(this, StudyWriteActivity.class)));
 
         binding.mainMenuBtn.setOnClickListener(v -> binding.main.openDrawer(GravityCompat.START));
+
+        binding.mainSearchImage.setOnClickListener(v -> {
+
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+        });
     }
 
     @Override
