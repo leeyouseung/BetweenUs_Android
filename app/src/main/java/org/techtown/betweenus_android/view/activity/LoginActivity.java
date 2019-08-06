@@ -40,7 +40,7 @@ public class LoginActivity extends BaseActivity<LoginActivityBinding> {
 
         loginViewModel.getData().observe(this, login -> {
             new Token(this).setToken(login.getToken());
-            new CurrentUser(this,"betweenUs.db",null,1).insert(login.getInfo());
+            new CurrentUser(this,"betweenUs.db",null,2).insert(login.getInfo());
             Toast.makeText(this,"로그인 성공",Toast.LENGTH_LONG).show();
             startActivity(new Intent(this, MainActivity.class));
         });

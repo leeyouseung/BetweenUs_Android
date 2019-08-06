@@ -50,7 +50,7 @@ public class QrActivity extends BaseActivity<QrActivityBinding> {
 
     private void setQR(Integer idx) {
 
-        String url = new QR(this,"betweenUs.db",null,1).getResult(idx);
+        String url = new QR(this,"betweenUs.db",null,2).getResult(idx);
 
         MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
         try{

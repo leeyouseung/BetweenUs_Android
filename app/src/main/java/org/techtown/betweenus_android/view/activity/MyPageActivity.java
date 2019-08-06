@@ -19,7 +19,7 @@ public class MyPageActivity extends BaseActivity<MypageActivityBinding> {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        CurrentUser currentUser = new CurrentUser(this, "betweenUs.db", null, 1);
+        CurrentUser currentUser = new CurrentUser(this, "betweenUs.db", null, 2);
 
         Member myInfo = currentUser.getResult();
 

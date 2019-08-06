@@ -48,27 +48,11 @@ public class ApplyStudyActivity extends BaseActivity<ApplyStudyActivityBinding> 
         applyStudyViewModel.getMyStudy();
 
         applyStudyViewModel.getData().observe(this, studyList -> {
+            
+            List<Study> studies = studyList.getApplyStudies();
+            studies.removeAll(studyList.getFoundStudies());
 
-            List<Study> deleteStudies = new ArrayList<>();
-            List<Study> mainStudies = studyList.getApplyStudies();
-
-            for (Study applyStudy: studyList.getApplyStudies()) {
-                for (Study foundStudy: studyList.getFoundStudies()) {
-                    if (applyStudy.getIdx() == foundStudy.getIdx()) {
-                        deleteStudies.add(applyStudy);
-                    }
-                }
-            }
-
-            for (Study mainStudy: mainStudies) {
-                for (Study deleteStudy: deleteStudies) {
-                    if (mainStudy.getIdx() == deleteStudy.getIdx()) {
-                        mainStudies.remove(deleteStudy);
-                    }
-                }
-            }
-
-            binding.studyRecyclerView.setAdapter(new StudyListAdapter(mainStudies, this, this, 0));
+            binding.studyRecyclerView.setAdapter(new StudyListAdapter(studies, this, this, 0));
         });
 
         clickEvent();
@@ -113,7 +97,7 @@ public class ApplyStudyActivity extends BaseActivity<ApplyStudyActivityBinding> 
                 startActivity(intent);
                 break;
             case R.id.menu_logout:
-                new CurrentUser(this,"betweenUs.db",null,1).delete();
+                new CurrentUser(this,"betweenUs.db",null,2).delete();
                 new Token(this).setToken("");
                 intent = new Intent(this, LoginActivity.class);
                 startActivity(intent);

@@ -112,7 +112,7 @@ public class MainActivity extends BaseActivity<MainActivityBinding> implements N
                 startActivity(intent);
                 break;
             case R.id.menu_logout:
-                new CurrentUser(this,"betweenUs.db",null,1).delete();
+                new CurrentUser(this,"betweenUs.db",null,2).delete();
                 new Token(this).setToken("");
                 intent = new Intent(this, LoginActivity.class);
                 startActivity(intent);

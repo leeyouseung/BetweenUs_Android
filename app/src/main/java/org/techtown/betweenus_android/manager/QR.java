@@ -21,6 +21,7 @@ public class QR extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+
     }
 
     @Override
@@ -29,8 +30,9 @@ public class QR extends SQLiteOpenHelper {
     }
 
     public void insert(String url) {
-        SQLiteDatabase db = getWritableDatabase();
+        SQLiteDatabase db = this.getWritableDatabase();
 
+        db.execSQL("CREATE TABLE QR (idx Integer PRIMARY KEY, url TEXT, currentUser TEXT);");
         Integer idx = Integer.parseInt(url.split("/")[3]);
         db.execSQL("INSERT INTO QR VALUES(" + idx + "  ,  '" + url + "'  ,  '" +  user.getResult().getId() + "');");
         db.close();

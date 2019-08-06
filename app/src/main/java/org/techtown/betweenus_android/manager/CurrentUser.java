@@ -22,7 +22,6 @@ public class CurrentUser extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE User (token TEXT PRIMARY KEY, studentidx Integer, name TEXT, school TEXT, profileimg TEXT, phoneNumber TEXT, id TEXT, grade Integer, schoolClass Integer);");
-        db.execSQL("CREATE TABLE QR (idx Integer PRIMARY KEY, url TEXT, currentUser TEXT);");
     }
 
     @Override

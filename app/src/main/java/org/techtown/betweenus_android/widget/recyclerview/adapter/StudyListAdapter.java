@@ -104,7 +104,7 @@ public class StudyListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     private void setQR(Integer idx, StudyListViewHolder viewHolder) {
 
-        String url = new QR(context,"betweenUs.db",null,1).getResult(idx);
+        String url = new QR(context,"betweenUs.db",null,2).getResult(idx);
 
         MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
         try{
