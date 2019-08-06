@@ -21,7 +21,6 @@ public class QR extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE QR (idx Integer PRIMARY KEY, url TEXT, currentUser TEXT);");
     }
 
     @Override

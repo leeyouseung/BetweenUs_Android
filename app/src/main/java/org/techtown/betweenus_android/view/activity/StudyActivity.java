@@ -37,8 +37,7 @@ public class StudyActivity extends BaseActivity<StudyActivityBinding> {
         initText();
 
         studyApplyViewModel.getData().observe(this, url -> {
-            QR qr = new QR(this,"betweenUs.db",null,1);
-            qr.insert(url);
+            new QR(this,"betweenUs.db",null,1).insert(url);
             Toast.makeText(this, "신청했습니다",Toast.LENGTH_SHORT).show();
             startActivity(new Intent(this, MainActivity.class));
         });

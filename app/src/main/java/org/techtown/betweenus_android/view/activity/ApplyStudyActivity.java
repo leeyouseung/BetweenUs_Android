@@ -50,7 +50,7 @@ public class ApplyStudyActivity extends BaseActivity<ApplyStudyActivityBinding> 
         applyStudyViewModel.getData().observe(this, studyList -> {
 
             List<Study> deleteStudies = new ArrayList<>();
-            List<Study> mainStudies = new ArrayList<>();
+            List<Study> mainStudies = studyList.getApplyStudies();
 
             for (Study applyStudy: studyList.getApplyStudies()) {
                 for (Study foundStudy: studyList.getFoundStudies()) {
