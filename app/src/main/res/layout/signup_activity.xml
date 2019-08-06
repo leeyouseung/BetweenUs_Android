@@ -32,7 +32,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_camera" />
+            app:srcCompat="@drawable/ic_camera"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/school_title"
@@ -110,7 +111,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/password_title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/password_title"
-            tools:ignore="Autofill,HardcodedText" />
+            tools:ignore="Autofill,HardcodedText,LabelFor" />
 
         <TextView
             android:id="@+id/re_password_title"
@@ -136,7 +137,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/re_password_title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/re_password_title"
-            tools:ignore="Autofill,HardcodedText" />
+            tools:ignore="Autofill,HardcodedText,LabelFor,TextFields" />
 
         <EditText
             android:id="@+id/class_text"
@@ -149,7 +150,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/class_title"
             app:layout_constraintStart_toEndOf="@+id/class_title"
             app:layout_constraintTop_toTopOf="@+id/class_title"
-            tools:ignore="Autofill,HardcodedText" />
+            tools:ignore="Autofill,HardcodedText,LabelFor" />
 
         <EditText
             android:id="@+id/grade_text"
@@ -162,7 +163,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/grade_title"
             app:layout_constraintStart_toEndOf="@+id/grade_title"
             app:layout_constraintTop_toTopOf="@+id/grade_title"
-            tools:ignore="Autofill,HardcodedText" />
+            tools:ignore="Autofill,HardcodedText,LabelFor" />
 
         <TextView
             android:id="@+id/class_title"
@@ -201,7 +202,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/school_title"
             app:layout_constraintStart_toEndOf="@+id/school_title"
             app:layout_constraintTop_toTopOf="@+id/school_title"
-            tools:ignore="Autofill,HardcodedText" />
+            tools:ignore="Autofill,HardcodedText,LabelFor" />
 
         <EditText
             android:id="@+id/phone_number_text"
@@ -217,7 +218,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/phone_number_title"
             app:layout_constraintStart_toEndOf="@+id/phone_number_title"
             app:layout_constraintTop_toTopOf="@+id/phone_number_title"
-            tools:ignore="Autofill,HardcodedText" />
+            tools:ignore="Autofill,HardcodedText,RtlSymmetry" />
 
         <TextView
             android:id="@+id/signup_btn"
