@@ -81,7 +81,7 @@ public class MainActivity extends BaseActivity<MainActivityBinding> implements N
 
         binding.create.setOnClickListener(v -> startActivity(new Intent(this, StudyWriteActivity.class)));
 
-        binding.menuBtn.setOnClickListener(v -> binding.main.openDrawer(GravityCompat.START));
+        binding.mainMenuBtn.setOnClickListener(v -> binding.main.openDrawer(GravityCompat.START));
     }
 
     @Override

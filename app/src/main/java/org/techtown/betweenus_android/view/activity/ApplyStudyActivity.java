@@ -84,7 +84,7 @@ public class ApplyStudyActivity extends BaseActivity<ApplyStudyActivityBinding> 
     }
 
     private void clickEvent() {
-        binding.menuBtn.setOnClickListener(v -> binding.main.openDrawer(GravityCompat.START));
+        binding.applyMenuBtn.setOnClickListener(v -> binding.main.openDrawer(GravityCompat.START));
     }
 
     @Override

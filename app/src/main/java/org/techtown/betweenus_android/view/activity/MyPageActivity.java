@@ -2,6 +2,7 @@ package org.techtown.betweenus_android.view.activity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import com.bumptech.glide.Glide;
 
@@ -22,6 +23,8 @@ public class MyPageActivity extends BaseActivity<MypageActivityBinding> {
         super.onCreate(savedInstanceState);
 
         getMyInfo();
+
+        binding.backArrowImg.setOnClickListener(view -> onBackPressed());
     }
 
     private void getMyInfo() {
@@ -35,7 +38,6 @@ public class MyPageActivity extends BaseActivity<MypageActivityBinding> {
         }
         binding.mypageNameText.setText(myInfo.getName());
         binding.schoolText.setText(myInfo.getSchool());
-        binding.gradeText.setText(String.valueOf(myInfo.getGrade()));
-        binding.classText.setText(String.valueOf(myInfo.getSchoolClass()));
+        binding.gradeText.setText(myInfo.getGrade() + "학년 " + myInfo.getSchoolClass() + "반");
     }
 }
