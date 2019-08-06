@@ -42,7 +42,7 @@ public class CurrentUser extends SQLiteOpenHelper {
     public void delete() {
         SQLiteDatabase db = getWritableDatabase();
 
-        db.execSQL("DELETE FROM QR WHERE token='" + new Token(context).getToken() + "';");
+        db.execSQL("DELETE FROM User WHERE token='" + new Token(context).getToken() + "';");
         db.close();
     }
 

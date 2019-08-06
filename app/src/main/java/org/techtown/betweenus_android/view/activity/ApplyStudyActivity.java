@@ -27,6 +27,9 @@ import org.techtown.betweenus_android.widget.recyclerview.adapter.StudyListAdapt
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
+
+import io.reactivex.plugins.RxJavaPlugins;
 
 public class ApplyStudyActivity extends BaseActivity<ApplyStudyActivityBinding> implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -50,11 +53,11 @@ public class ApplyStudyActivity extends BaseActivity<ApplyStudyActivityBinding> 
 
         applyStudyViewModel.getData().observe(this, studyList -> {
 
-            List<Study> studies = new ArrayList<>(studyList.getApplyStudies());
+            List<Study> studies = new CopyOnWriteArrayList<>(studyList.getApplyStudies());
 
             for (Study study: studies) {
                 for (Study delete: studyList.getFoundStudies()) {
-                    if (study.getIdx() == delete.getIdx()) {
+                    if (study.getIdx().equals(delete.getIdx())) {
                         studies.remove(study);
                     }
                 }
@@ -71,7 +74,6 @@ public class ApplyStudyActivity extends BaseActivity<ApplyStudyActivityBinding> 
     }
 
     private void clickEvent() {
-
         binding.menuBtn.setOnClickListener(v -> binding.main.openDrawer(GravityCompat.START));
     }
 
