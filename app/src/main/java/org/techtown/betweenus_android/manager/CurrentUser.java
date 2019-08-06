@@ -22,7 +22,7 @@ public class CurrentUser extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE User (token TEXT PRIMARY KEY, studentidx Integer, name TEXT, school TEXT, profileimg TEXT, phoneNumber TEXT, id TEXT, grade Integer, schoolClass Integer);");
+        db.execSQL("CREATE TABLE User (token TEXT PRIMARY KEY, studentidx Integer, name TEXT, school TEXT, profileImg TEXT, phoneNumber TEXT, id TEXT, grade Integer, schoolClass Integer);");
     }
 
     @Override
@@ -34,7 +34,7 @@ public class CurrentUser extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
 
         db.execSQL("INSERT INTO User VALUES('" + new Token(context).getToken() + "'  ,  " + member.getStudentidx() + "  ,  '" + member.getName() + "'  ,  '" + member.getSchool() + "'" +
-                "  ,  '" + member.getProfileimg() + "'  ,  '" + member.getPhoneNumber() + "'  ,  '" + member.getId() + "'" +
+                "  ,  '" + member.getprofileImg() + "'  ,  '" + member.getPhoneNumber() + "'  ,  '" + member.getId() + "'" +
                 "  ,  " + member.getGrade() + "  ,  '" + member.getSchoolClass() + "');");
         db.close();
     }
@@ -53,7 +53,7 @@ public class CurrentUser extends SQLiteOpenHelper {
         Integer studentidx  = null;
         String name = null;
         String school = null;
-        String profileimg = null;
+        String profileImg = null;
         String phoneNumber = null;
         String id = null;
         Integer grade = null;
@@ -66,13 +66,13 @@ public class CurrentUser extends SQLiteOpenHelper {
             studentidx = cursor.getInt(cursor.getColumnIndex("studentidx"));
             name = cursor.getString(cursor.getColumnIndex("name"));
             school = cursor.getString(cursor.getColumnIndex("school"));
-            profileimg = cursor.getString(cursor.getColumnIndex("profileimg"));
+            profileImg = cursor.getString(cursor.getColumnIndex("profileImg"));
             phoneNumber = cursor.getString(cursor.getColumnIndex("phoneNumber"));
             id = cursor.getString(cursor.getColumnIndex("id"));
             grade = cursor.getInt(cursor.getColumnIndex("grade"));
             schoolClass = cursor.getInt(cursor.getColumnIndex("schoolClass"));
 
-            member = new Member(id, name, school, profileimg, phoneNumber, studentidx, grade, schoolClass);
+            member = new Member(id, name, school, profileImg, phoneNumber, studentidx, grade, schoolClass);
         }
 
         return member;

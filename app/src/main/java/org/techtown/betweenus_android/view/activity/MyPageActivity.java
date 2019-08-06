@@ -28,10 +28,10 @@ public class MyPageActivity extends BaseActivity<MypageActivityBinding> {
         CurrentUser currentUser = new CurrentUser(this, "betweenUs.db", null, 2);
         Member myInfo = currentUser.getResult();
 
-        Log.d("imgTag", myInfo.getProfileimg());
-        if (!myInfo.getProfileimg().equals("null")) {
+        Log.d("imgTag", myInfo.getprofileImg());
+        if (!myInfo.getprofileImg().equals("null")) {
             Log.d("imgTag", "Pass");
-            Glide.with(this).load(myInfo.getProfileimg()).into(binding.userImageview);
+            Glide.with(this).load(myInfo.getprofileImg()).into(binding.userImageview);
         }
         binding.nameText.setText(myInfo.getName());
         binding.schoolText.setText(myInfo.getSchool());

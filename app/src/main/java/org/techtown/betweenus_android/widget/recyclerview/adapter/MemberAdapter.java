@@ -54,8 +54,8 @@ public class MemberAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     private void populateItemRows(MemberViewHolder viewHolder, Member member) {
         viewHolder.binding.nameText.setText(member.getName());
         viewHolder.binding.gradeClassText.setText(member.getGrade() + "학년 " + member.getSchoolClass() + "반");
-        if (member.getProfileimg() != null) {
-            Glide.with(view).load(member.getProfileimg()).into(viewHolder.binding.studyImageview);
+        if (member.getprofileImg() != null) {
+            Glide.with(view).load(member.getprofileImg()).into(viewHolder.binding.studyImageview);
         }
     }
 }
