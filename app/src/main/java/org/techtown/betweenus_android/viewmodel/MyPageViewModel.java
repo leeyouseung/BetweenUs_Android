@@ -4,9 +4,10 @@ import android.content.Context;
 
 import org.techtown.betweenus_android.base.BaseViewModel;
 
-public class ProfileViewModel extends BaseViewModel {
+public class MyPageViewModel extends BaseViewModel {
 
-    public ProfileViewModel(Context context) {
+    public MyPageViewModel(Context context) {
         super(context);
     }
+
 }
