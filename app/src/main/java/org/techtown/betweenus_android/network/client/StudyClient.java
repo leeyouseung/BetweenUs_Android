@@ -34,4 +34,8 @@ public class StudyClient extends BaseClient<StudyApi> {
     public Single<StudyList> getMyStudy(Token token) {
         return api.getMyStudy(token.getToken()).map(getResponseObjectsFunction());
     }
+
+    public Single<String> postStudyEnd(Token token, Integer studyIdx) {
+        return api.postStudyEnd(token.getToken(), studyIdx).map(Response::message);
+    }
 }

@@ -28,4 +28,8 @@ public class StudyViewModel extends BaseViewModel<List<Study>> {
     public void postCreateStudy(StudyRequest studyRequest) {
         addDisposable(studyClient.postCreateStudy(getToken(), studyRequest), getBaseObserver());
     }
+
+    public void postStudyEnd(Integer studyIdx) {
+        addDisposable(studyClient.postStudyEnd(getToken(), studyIdx), getBaseObserver());
+    }
 }

@@ -3,6 +3,7 @@ package org.techtown.betweenus_android.view.fragment;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 
@@ -22,6 +23,16 @@ public class StudyManageMainFragment extends BaseFragment<StudyManageMainFragmen
     @Override
     protected int layoutId() {
         return R.layout.study_manage_main_fragment;
+    }
+
+    @Override
+    protected Fragment currentFragment() {
+        return StudyManageMainFragment.this;
+    }
+
+    @Override
+    protected Integer studyIdx() {
+        return null;
     }
 
     @Override

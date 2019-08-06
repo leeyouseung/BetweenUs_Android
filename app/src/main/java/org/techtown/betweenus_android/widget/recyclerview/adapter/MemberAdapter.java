@@ -36,7 +36,7 @@ public class MemberAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new StudyListViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.qr_item, parent, false));
+        return new MemberViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.member_item, parent, false));
     }
 
     @Override

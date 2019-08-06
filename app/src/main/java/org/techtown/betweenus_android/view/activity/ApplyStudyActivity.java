@@ -50,17 +50,7 @@ public class ApplyStudyActivity extends BaseActivity<ApplyStudyActivityBinding> 
 
         applyStudyViewModel.getData().observe(this, studyList -> {
 
-            List<Study> studies = new ArrayList<>(studyList.getApplyStudies());
-
-            for (Study study: studies) {
-                for (Study delete: studyList.getFoundStudies()) {
-                    if (study.getIdx() == delete.getIdx()) {
-                        studies.remove(study);
-                    }
-                }
-            }
-
-            binding.studyRecyclerView.setAdapter(new StudyListAdapter(studies, this, this, 0));
+            binding.studyRecyclerView.setAdapter(new StudyListAdapter(studyList.getApplyStudies(), this, this, 0));
         });
 
         clickEvent();

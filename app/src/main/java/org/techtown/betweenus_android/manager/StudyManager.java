@@ -15,21 +15,21 @@ public class StudyManager extends ContextWrapper {
 
     private Boolean studyManager;
 
-    public void setStudyManager(Boolean studyManager) {
+    public void setStudyManager(Integer studyIdx, Boolean studyManager) {
 
         SharedPreferences sharedPreferences = getSharedPreferences("betweenus",MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        editor.putBoolean("studyManager", studyManager);
+        editor.putBoolean(Integer.toString(studyIdx), studyManager);
 
         editor.commit();
     }
 
-    public Boolean getStudyManager() {
+    public Boolean getStudyManager(Integer studyIdx) {
 
         SharedPreferences sharedPreferences = getSharedPreferences("betweenus",MODE_PRIVATE);
 
-        studyManager = sharedPreferences.getBoolean("studyManager",false);
+        studyManager = sharedPreferences.getBoolean(Integer.toString(studyIdx),false);
 
         return studyManager;
 

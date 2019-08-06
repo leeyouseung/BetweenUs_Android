@@ -22,7 +22,4 @@ public interface MemberApi {
     @GET("/member/study/{studyIdx}")
     Single<retrofit2.Response<Response<List<Member>>>> getStudyMember(@Header("x-access-token") String token,
                                                                       @Path("studyIdx") Integer studyIdx);
-
-    @GET("/member")
-    Single<retrofit2.Response<Response>> getStudyOkMember(@Header("x-access-token") String token);
 }

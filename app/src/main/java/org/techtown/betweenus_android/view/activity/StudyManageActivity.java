@@ -91,7 +91,7 @@ public class StudyManageActivity extends BaseActivity<StudyManageActivityBinding
                 tran.commit();
                 break;
             case 2:
-                tran.replace(R.id.frame, new StudyManageOkMemberFragment());
+                tran.replace(R.id.frame, new StudyManageOkMemberFragment(study.getIdx(), this));
                 tran.commit();
                 break;
         }

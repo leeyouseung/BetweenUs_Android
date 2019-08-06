@@ -14,6 +14,7 @@ public class Member {
     private Integer grade;
     @SerializedName("class")
     private Integer schoolClass;
+    private Integer status;
 
     public Member() {
 
@@ -92,5 +93,13 @@ public class Member {
 
     public void setSchoolClass(Integer schoolClass) {
         this.schoolClass = schoolClass;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 }

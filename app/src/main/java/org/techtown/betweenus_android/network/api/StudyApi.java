@@ -32,6 +32,10 @@ public interface StudyApi {
     Single<retrofit2.Response<Response<String>>> postCreateStudyApply(@Header("x-access-token") String token,
                                                               @Body StudyApplyRequest studyApplyRequest);
 
+    @POST("/study/end")
+    Single<retrofit2.Response<Response>> postStudyEnd(@Header("x-access-token") String token,
+                                                                      @Body Integer studyIdx);
+
     @DELETE("/study/apply")
     Single<retrofit2.Response<Response>> deleteStudyMember();
 
