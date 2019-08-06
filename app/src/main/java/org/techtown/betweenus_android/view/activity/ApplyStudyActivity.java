@@ -25,6 +25,7 @@ import org.techtown.betweenus_android.viewmodel.ApplyStudyViewModel;
 import org.techtown.betweenus_android.widget.recyclerview.adapter.StudyListAdapter;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 public class ApplyStudyActivity extends BaseActivity<ApplyStudyActivityBinding> implements NavigationView.OnNavigationItemSelectedListener {
@@ -48,9 +49,16 @@ public class ApplyStudyActivity extends BaseActivity<ApplyStudyActivityBinding> 
         applyStudyViewModel.getMyStudy();
 
         applyStudyViewModel.getData().observe(this, studyList -> {
-            
+
             List<Study> studies = studyList.getApplyStudies();
-            studies.removeAll(studyList.getFoundStudies());
+
+//            for (Study study: studyList.getApplyStudies()) {
+//                for (Study delete: studyList.getFoundStudies()) {
+//                    if (study.getIdx() == delete.getIdx()) {
+//                        studies.remove(study);
+//                    }
+//                }
+//            }
 
             binding.studyRecyclerView.setAdapter(new StudyListAdapter(studies, this, this, 0));
         });
