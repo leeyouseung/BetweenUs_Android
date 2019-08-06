@@ -19,8 +19,7 @@
         android:src="@drawable/logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="ContentDescription" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/login_container"
@@ -50,8 +49,7 @@
             android:textColorHint="@color/colorTextHint"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="Autofill,HardcodedText,SpUsage" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/password_text"
@@ -62,12 +60,11 @@
             android:layout_marginEnd="40dp"
             android:hint="Password"
             android:padding="10dp"
-            android:textSize="15sp"
+            android:textSize="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/id_text"
-            android:inputType="textPassword"
-            tools:ignore="Autofill,HardcodedText" />
+            android:inputType="textPassword"/>
 
         <ImageView
             android:id="@+id/clear"
@@ -76,9 +73,8 @@
             android:layout_marginEnd="5dp"
             android:layout_marginBottom="10dp"
             android:src="@drawable/ic_clear_btn"
-            app:layout_constraintBottom_toBottomOf="@+id/re_password_text"
-            app:layout_constraintEnd_toStartOf="@+id/blind"
-            tools:ignore="ContentDescription" />
+            app:layout_constraintBottom_toBottomOf="@+id/password_text"
+            app:layout_constraintEnd_toStartOf="@+id/blind" />
 
         <ImageView
             android:id="@+id/blind"
@@ -87,9 +83,8 @@
             android:layout_marginEnd="10dp"
             android:src="@drawable/ic_blind"
             app:layout_constraintBottom_toBottomOf="@+id/clear"
-            app:layout_constraintEnd_toEndOf="@+id/re_password_text"
-            app:layout_constraintTop_toTopOf="@+id/clear"
-            tools:ignore="ContentDescription" />
+            app:layout_constraintEnd_toEndOf="@+id/password_text"
+            app:layout_constraintTop_toTopOf="@+id/clear" />
 
         <TextView
             android:id="@+id/textView"
@@ -101,8 +96,7 @@
             android:fontFamily="@font/nanum_squarer"
             android:textColor="@color/colorTextHint"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/re_password_text"
-            tools:ignore="HardcodedText" />
+            app:layout_constraintTop_toBottomOf="@id/password_text" />
 
         <TextView
             android:id="@+id/login_btn"
@@ -120,8 +114,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/id_text"
-            tools:ignore="HardcodedText,SpUsage" />
+            app:layout_constraintTop_toBottomOf="@+id/id_text" />
 
         <TextView
             android:layout_width="0dp"
@@ -131,8 +124,7 @@
             android:fontFamily="@font/nanum_squareb"
             android:textColor="@color/colorTextHint"
             app:layout_constraintEnd_toStartOf="@id/signup_btn"
-            app:layout_constraintTop_toTopOf="@+id/signup_btn"
-            tools:ignore="HardcodedText" />
+            app:layout_constraintTop_toTopOf="@+id/signup_btn" />
 
         <TextView
             android:id="@+id/signup_btn"
@@ -144,8 +136,7 @@
             android:text="회원가입"
             android:textColor="@color/colorText"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login_btn"
-            tools:ignore="HardcodedText" />
+            app:layout_constraintTop_toBottomOf="@+id/login_btn" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
