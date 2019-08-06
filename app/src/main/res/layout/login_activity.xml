@@ -35,7 +35,7 @@
         app:layout_constraintTop_toBottomOf="@id/logo">
 
         <EditText
-            android:id="@+id/id_text"
+            android:id="@+id/re_password_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
@@ -52,7 +52,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/password_text"
+            android:id="@+id/id_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
@@ -63,7 +63,7 @@
             android:textSize="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/id_text"
+            app:layout_constraintTop_toBottomOf="@+id/re_password_text"
             android:inputType="textPassword"/>
 
         <ImageView
@@ -73,7 +73,7 @@
             android:layout_marginEnd="5dp"
             android:layout_marginBottom="10dp"
             android:src="@drawable/ic_clear_btn"
-            app:layout_constraintBottom_toBottomOf="@+id/password_text"
+            app:layout_constraintBottom_toBottomOf="@+id/id_text"
             app:layout_constraintEnd_toStartOf="@+id/blind" />
 
         <ImageView
@@ -83,7 +83,7 @@
             android:layout_marginEnd="10dp"
             android:src="@drawable/ic_blind"
             app:layout_constraintBottom_toBottomOf="@+id/clear"
-            app:layout_constraintEnd_toEndOf="@+id/password_text"
+            app:layout_constraintEnd_toEndOf="@+id/id_text"
             app:layout_constraintTop_toTopOf="@+id/clear" />
 
         <TextView
@@ -96,7 +96,7 @@
             android:fontFamily="@font/nanum_squarer"
             android:textColor="@color/colorTextHint"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/password_text" />
+            app:layout_constraintTop_toBottomOf="@id/id_text" />
 
         <TextView
             android:id="@+id/login_btn"
@@ -114,7 +114,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/password_text" />
+            app:layout_constraintTop_toBottomOf="@+id/id_text" />
 
         <TextView
             android:layout_width="0dp"
