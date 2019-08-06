@@ -21,6 +21,8 @@ public abstract class BaseFragment<VB extends ViewDataBinding> extends Fragment 
 
     protected VB binding;
     protected View view;
+    protected LayoutInflater inflater;
+    protected ViewGroup container;
 
     @LayoutRes
     protected abstract int layoutId();
@@ -39,6 +41,8 @@ public abstract class BaseFragment<VB extends ViewDataBinding> extends Fragment 
         binding = DataBindingUtil.inflate(
                 inflater, layoutId(), container, false);
 
+        this.inflater = inflater;
+        this.container = container;
         view = binding.getRoot();
 
         return view;
