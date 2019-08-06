@@ -3,6 +3,7 @@ package org.techtown.betweenus_android.view.activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -25,6 +26,8 @@ public class MyPageActivity extends BaseActivity<MypageActivityBinding> {
         getMyInfo();
 
         binding.backArrowImg.setOnClickListener(view -> onBackPressed());
+
+        clickEvent();
     }
 
     private void getMyInfo() {
@@ -39,5 +42,16 @@ public class MyPageActivity extends BaseActivity<MypageActivityBinding> {
         binding.mypageNameText.setText(myInfo.getName());
         binding.schoolText.setText(myInfo.getSchool());
         binding.gradeText.setText(myInfo.getGrade() + "학년 " + myInfo.getSchoolClass() + "반");
+    }
+
+    private void clickEvent() {
+
+        View.OnClickListener onClickListener = v -> Toast.makeText(this, "추후에 개발 될 예정입니다.", Toast.LENGTH_SHORT).show();
+
+        binding.profileEditBtn.setOnClickListener(onClickListener);
+
+        binding.profileEditBtn2.setOnClickListener(onClickListener);
+
+        binding.profileEditBtn3.setOnClickListener(onClickListener);
     }
 }

@@ -69,6 +69,7 @@
             android:textColor="#000"
             android:padding="7dp"
             android:textSize="15dp"
+            android:inputType="text"
             app:layout_constraintEnd_toEndOf="@+id/linearLayout"
             app:layout_constraintStart_toStartOf="@+id/linearLayout"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
@@ -84,6 +85,7 @@
             android:textColor="#000"
             android:padding="7dp"
             android:textSize="15dp"
+            android:inputType="text"
             app:layout_constraintBottom_toTopOf="@+id/write_btn"
             app:layout_constraintEnd_toEndOf="@+id/linearLayout"
             app:layout_constraintStart_toStartOf="@+id/linearLayout"
