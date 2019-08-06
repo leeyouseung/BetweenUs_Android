@@ -7,7 +7,7 @@ public class Member {
     private String id;
     private String name;
     private String school;
-    private String profileimg;
+    private String profileImg;
     @SerializedName("phone_number")
     private String phoneNumber;
     private Integer studentidx;
@@ -19,11 +19,11 @@ public class Member {
 
     }
 
-    public Member(String id, String name, String school, String profileimg, String phoneNumber, Integer studentidx, Integer grade, Integer schoolClass) {
+    public Member(String id, String name, String school, String profileImg, String phoneNumber, Integer studentidx, Integer grade, Integer schoolClass) {
         this.id = id;
         this.name = name;
         this.school = school;
-        this.profileimg = profileimg;
+        this.profileImg = profileImg;
         this.phoneNumber = phoneNumber;
         this.studentidx = studentidx;
         this.grade = grade;
@@ -54,12 +54,12 @@ public class Member {
         this.school = school;
     }
 
-    public String getProfileimg() {
-        return profileimg;
+    public String getprofileImg() {
+        return profileImg;
     }
 
-    public void setProfileimg(String profileimg) {
-        this.profileimg = profileimg;
+    public void setprofileImg(String profileImg) {
+        this.profileImg = profileImg;
     }
 
     public String getPhoneNumber() {
