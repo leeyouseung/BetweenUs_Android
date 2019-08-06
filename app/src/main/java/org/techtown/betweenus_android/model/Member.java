@@ -15,12 +15,13 @@ public class Member {
     @SerializedName("class")
     private Integer schoolClass;
     private Integer status;
+    private String group;
 
     public Member() {
 
     }
 
-    public Member(String id, String name, String school, String profileImg, String phoneNumber, Integer studentidx, Integer grade, Integer schoolClass) {
+    public Member(String id, String name, String school, String profileImg, String phoneNumber, Integer studentidx, Integer grade, Integer schoolClass, String group) {
         this.id = id;
         this.name = name;
         this.school = school;
@@ -29,6 +30,7 @@ public class Member {
         this.studentidx = studentidx;
         this.grade = grade;
         this.schoolClass = schoolClass;
+        this.group = group;
     }
 
     public String getId() {
@@ -101,5 +103,21 @@ public class Member {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public String getProfileImg() {
+        return profileImg;
+    }
+
+    public void setProfileImg(String profileImg) {
+        this.profileImg = profileImg;
+    }
+
+    public String getGroup() {
+        return group;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
     }
 }

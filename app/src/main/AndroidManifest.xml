@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="org.techtown.betweenus_android">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
@@ -15,8 +15,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".view.activity.TeacherActivity"></activity>
         <activity android:name=".view.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,25 +25,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.activity.SignupActivity">
-        </activity>
-        <activity android:name="org.techtown.betweenus_android.view.activity.MainActivity">
-        </activity>
-        <activity android:name=".view.activity.MyPageActivity">
-        </activity>
-        <activity android:name=".view.activity.StudyWriteActivity">
-        </activity>
-        <activity android:name=".view.activity.StudyActivity">
-        </activity>
+        <activity android:name=".view.activity.SignupActivity"></activity>
+        <activity android:name=".view.activity.MainActivity"></activity>
+        <activity android:name=".view.activity.MyPageActivity"></activity>
+        <activity android:name=".view.activity.StudyWriteActivity"></activity>
+        <activity android:name=".view.activity.StudyActivity"></activity>
         <activity android:name=".view.activity.LoginActivity" />
-        <activity android:name=".view.activity.ApplyStudyActivity">
-        </activity>
-        <activity android:name=".view.activity.FoundStudyActivity">
-        </activity>
-        <activity android:name=".view.activity.StudyManageActivity">
-        </activity>
-        <activity android:name=".view.activity.QrActivity">
-        </activity>
+        <activity android:name=".view.activity.ApplyStudyActivity"></activity>
+        <activity android:name=".view.activity.FoundStudyActivity"></activity>
+        <activity android:name=".view.activity.StudyManageActivity"></activity>
+        <activity android:name=".view.activity.QrActivity"></activity>
     </application>
 
 </manifest>

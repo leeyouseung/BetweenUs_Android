@@ -22,7 +22,7 @@ public class CurrentUser extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE User (token TEXT PRIMARY KEY, studentidx Integer, name TEXT, school TEXT, profileImg String, phoneNumber TEXT, id TEXT, grade Integer, schoolClass Integer);");
+        db.execSQL("CREATE TABLE User (token TEXT PRIMARY KEY, studentidx Integer, name TEXT, school TEXT, profileImg String, phoneNumber TEXT, id TEXT, grade Integer, schoolClass Integer, sgroup String);");
     }
 
     @Override
@@ -35,7 +35,7 @@ public class CurrentUser extends SQLiteOpenHelper {
 
         db.execSQL("INSERT INTO User VALUES('" + new Token(context).getToken() + "'  ,  " + member.getStudentidx() + "  ,  '" + member.getName() + "'  ,  '" + member.getSchool() + "' , '"
                   + member.getprofileImg() + "'  ,  '" + member.getPhoneNumber() + "'  ,  '" + member.getId() + "'" +
-                "  ,  " + member.getGrade() + "  ,  '" + member.getSchoolClass() + "');");
+                "  ,  " + member.getGrade() + "  ,  '" + member.getSchoolClass() + "'  ,  '" + member.getGroup() + "' );");
         db.close();
     }
 
@@ -56,6 +56,7 @@ public class CurrentUser extends SQLiteOpenHelper {
         String profileImg = null;
         String phoneNumber = null;
         String id = null;
+        String group = null;
         Integer grade = null;
         Integer schoolClass = null;
 
@@ -71,8 +72,9 @@ public class CurrentUser extends SQLiteOpenHelper {
             id = cursor.getString(cursor.getColumnIndex("id"));
             grade = cursor.getInt(cursor.getColumnIndex("grade"));
             schoolClass = cursor.getInt(cursor.getColumnIndex("schoolClass"));
+            group = cursor.getString(cursor.getColumnIndex("sgroup"));
 
-            member = new Member(id, name, school, profileImg, phoneNumber, studentidx, grade, schoolClass);
+            member = new Member(id, name, school, profileImg, phoneNumber, studentidx, grade, schoolClass,group);
         }
 
         return member;

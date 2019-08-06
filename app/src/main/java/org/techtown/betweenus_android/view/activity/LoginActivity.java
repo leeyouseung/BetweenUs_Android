@@ -42,7 +42,12 @@ public class LoginActivity extends BaseActivity<LoginActivityBinding> {
             new Token(this).setToken(login.getToken());
             new CurrentUser(this,"betweenUs.db",null,2).insert(login.getInfo());
             Toast.makeText(this,"로그인 성공",Toast.LENGTH_LONG).show();
-            startActivity(new Intent(this, MainActivity.class));
+            if (login.getInfo().getGroup() == null) {
+                startActivity(new Intent(this, MainActivity.class));
+            } else {
+                startActivity(new Intent(this, TeacherActivity.class));
+            }
+
         });
 
         loginViewModel.getErrorMessage().observe(this, message -> Toast.makeText(this,message,Toast.LENGTH_LONG).show());
