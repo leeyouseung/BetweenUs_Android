@@ -41,7 +41,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/background_yellow"
-            app:srcCompat="@drawable/dslr_camera_icon" />
+            app:srcCompat="@drawable/ic_person_black_24dp" />
 
 
         <TextView
