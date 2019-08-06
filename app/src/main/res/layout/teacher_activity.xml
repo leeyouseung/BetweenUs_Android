@@ -82,7 +82,6 @@
             android:layout_height="match_parent"
             android:background="@drawable/background_menu"
             android:fitsSystemWindows="true"
-            app:headerLayout="@layout/menu_drawer"
             android:layout_gravity="start"
             app:menu="@menu/teahcer_menu_main" />
 

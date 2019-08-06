@@ -25,6 +25,7 @@ import org.techtown.betweenus_android.network.api.MemberApi;
 import org.techtown.betweenus_android.utils.Utils;
 import org.techtown.betweenus_android.view.activity.StudyActivity;
 import org.techtown.betweenus_android.view.activity.TeacherActivity;
+import org.techtown.betweenus_android.view.activity.TeacherMemberActivity;
 import org.techtown.betweenus_android.viewmodel.MemberViewModel;
 import org.techtown.betweenus_android.viewmodel.StudyViewModel;
 import org.techtown.betweenus_android.widget.recyclerview.viewholder.MainListViewHolder;
@@ -81,9 +82,9 @@ public class TeacherStudyAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         }
 
         viewHolder.binding.teacherStudyCardView.setOnClickListener(v -> {
-//            Intent intent = new Intent(context, StudyActivity.class);
-//            intent.putExtra("study",study);
-//            context.startActivity(intent);
+            Intent intent = new Intent(context, TeacherMemberActivity.class);
+            intent.putExtra("study",study);
+            context.startActivity(intent);
         });
     }
 }
