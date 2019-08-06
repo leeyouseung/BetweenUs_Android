@@ -33,7 +33,7 @@ public class MyPageActivity extends BaseActivity<MypageActivityBinding> {
             Log.d("imgTag", "Pass");
             Glide.with(this).load(myInfo.getprofileImg()).into(binding.userImageview);
         }
-        binding.nameText.setText(myInfo.getName());
+        binding.mypageNameText.setText(myInfo.getName());
         binding.schoolText.setText(myInfo.getSchool());
         binding.gradeText.setText(String.valueOf(myInfo.getGrade()));
         binding.classText.setText(String.valueOf(myInfo.getSchoolClass()));
