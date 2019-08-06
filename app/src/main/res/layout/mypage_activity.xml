@@ -38,11 +38,11 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="104dp"
             android:layout_marginEnd="8dp"
-            android:src="@drawable/dslr_camera_icon"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/background_yellow"
-            app:srcCompat="@mipmap/ic_launcher" />
+            app:srcCompat="@drawable/dslr_camera_icon" />
+
 
         <TextView
             android:id="@+id/grade_text"
@@ -51,11 +51,54 @@
             android:layout_marginTop="96dp"
             android:layout_marginEnd="8dp"
             android:fontFamily="@font/nanum_squareb"
-            android:text="Grade"
+            android:text="G"
             android:textColor="@color/colorBlack"
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="@+id/join_code_btn"
-            app:layout_constraintHorizontal_bias="0.514"
+            app:layout_constraintHorizontal_bias="0.41"
+            app:layout_constraintStart_toStartOf="@+id/join_code_btn"
+            app:layout_constraintTop_toBottomOf="@+id/user_imageview" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="96dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/nanum_squareb"
+            android:text="학년"
+            android:textColor="@color/colorBlack"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="@+id/join_code_btn"
+            app:layout_constraintHorizontal_bias="0.473"
+            app:layout_constraintStart_toStartOf="@+id/join_code_btn"
+            app:layout_constraintTop_toBottomOf="@+id/user_imageview" />
+
+        <TextView
+            android:id="@+id/class_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="96dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/nanum_squareb"
+            android:text="C"
+            android:textColor="@color/colorBlack"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="@+id/join_code_btn"
+            app:layout_constraintHorizontal_bias="0.563"
+            app:layout_constraintStart_toStartOf="@+id/join_code_btn"
+            app:layout_constraintTop_toBottomOf="@+id/user_imageview" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="96dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/nanum_squareb"
+            android:text="반"
+            android:textColor="@color/colorBlack"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="@+id/join_code_btn"
+            app:layout_constraintHorizontal_bias="0.607"
             app:layout_constraintStart_toStartOf="@+id/join_code_btn"
             app:layout_constraintTop_toBottomOf="@+id/user_imageview" />
 
@@ -80,7 +123,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:fontFamily="@font/nanum_squareeb"
+            android:fontFamily="@font/nanum_squareb"
             android:text="Name"
             android:textColor="@color/colorBlack"
             android:textSize="25dp"
