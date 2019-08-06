@@ -19,8 +19,13 @@ import org.techtown.betweenus_android.databinding.FoundStudyActivityBinding;
 import org.techtown.betweenus_android.manager.CurrentUser;
 import org.techtown.betweenus_android.manager.Token;
 import org.techtown.betweenus_android.manager.ViewModelFactory;
+import org.techtown.betweenus_android.model.Study;
+import org.techtown.betweenus_android.model.StudyList;
 import org.techtown.betweenus_android.viewmodel.ApplyStudyViewModel;
 import org.techtown.betweenus_android.widget.recyclerview.adapter.StudyListAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ApplyStudyActivity extends BaseActivity<ApplyStudyActivityBinding> implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -43,7 +48,27 @@ public class ApplyStudyActivity extends BaseActivity<ApplyStudyActivityBinding> 
         applyStudyViewModel.getMyStudy();
 
         applyStudyViewModel.getData().observe(this, studyList -> {
-            binding.studyRecyclerView.setAdapter(new StudyListAdapter(studyList.getApplyStudies(), this, this, 0));
+
+            List<Study> deleteStudies = new ArrayList<>();
+            List<Study> mainStudies = new ArrayList<>();
+
+            for (Study applyStudy: studyList.getApplyStudies()) {
+                for (Study foundStudy: studyList.getFoundStudies()) {
+                    if (applyStudy.getIdx() == foundStudy.getIdx()) {
+                        deleteStudies.add(applyStudy);
+                    }
+                }
+            }
+
+            for (Study mainStudy: mainStudies) {
+                for (Study deleteStudy: deleteStudies) {
+                    if (mainStudy.getIdx() == deleteStudy.getIdx()) {
+                        mainStudies.remove(deleteStudy);
+                    }
+                }
+            }
+
+            binding.studyRecyclerView.setAdapter(new StudyListAdapter(mainStudies, this, this, 0));
         });
 
         clickEvent();
