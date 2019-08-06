@@ -3,6 +3,7 @@ package org.techtown.betweenus_android.view.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -43,7 +44,20 @@ public class TeacherActivity extends BaseActivity<TeacherActivityBinding> implem
             binding.teacherStudyRecyclerView.setAdapter(new TeacherStudyAdapter(studies, this, this));
         });
 
-        binding.teacherMainMenuBtn.setOnClickListener(v -> binding.teacherMain.openDrawer(GravityCompat.START);
+        binding.teacherMainMenuBtn.setOnClickListener(v -> binding.teacherMain.openDrawer(GravityCompat.START));
+
+        clickEvent();
+    }
+
+    private void clickEvent() {
+
+        binding.teacherMainSearchImage.setOnClickListener(view -> {
+
+            Intent intent = new Intent(getApplicationContext(), TeacherActivity.class);
+            startActivity(intent);
+
+            finish();
+        });
     }
 
     @Override
