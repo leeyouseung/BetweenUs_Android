@@ -29,7 +29,7 @@ public class MyPageActivity extends BaseActivity<MypageActivityBinding> {
         Member myInfo = currentUser.getResult();
 
         Log.d("imgTag", myInfo.getprofileImg());
-        if (!myInfo.getprofileImg().equals("null")) {
+        if (!myInfo.getprofileImg().isEmpty()) {
             Log.d("imgTag", "Pass");
             Glide.with(this).load(myInfo.getprofileImg()).into(binding.userImageview);
         }
