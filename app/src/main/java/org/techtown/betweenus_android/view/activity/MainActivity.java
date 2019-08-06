@@ -89,6 +89,7 @@ public class MainActivity extends BaseActivity<MainActivityBinding> implements N
 
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
+            finish();
         });
     }
 
