@@ -53,13 +53,12 @@ public class QR extends SQLiteOpenHelper {
 
         try {
             cursor = db.rawQuery("SELECT * FROM QR WHERE idx="+idx+" AND currentUser='"+user.getResult().getId()+"'", null);
+            while (cursor.moveToNext()) {
+                result = cursor.getString(cursor.getColumnIndex("url"));
+            }
         }
         catch (Exception exception) {
             Toast.makeText(context,"참여중인 스터디가 없습니다",Toast.LENGTH_SHORT).show();
-        }
-
-        while (cursor.moveToNext()) {
-            result = cursor.getString(cursor.getColumnIndex("url"));
         }
 
         return result;
