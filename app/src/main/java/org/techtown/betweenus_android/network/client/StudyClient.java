@@ -6,6 +6,7 @@ import org.techtown.betweenus_android.model.Study;
 import org.techtown.betweenus_android.model.StudyList;
 import org.techtown.betweenus_android.network.api.StudyApi;
 import org.techtown.betweenus_android.network.request.StudyApplyRequest;
+import org.techtown.betweenus_android.network.request.StudyIdxRequest;
 import org.techtown.betweenus_android.network.request.StudyRequest;
 
 import java.util.List;
@@ -36,6 +37,6 @@ public class StudyClient extends BaseClient<StudyApi> {
     }
 
     public Single<String> postStudyEnd(Token token, Integer studyIdx) {
-        return api.postStudyEnd(token.getToken(), studyIdx).map(Response::message);
+        return api.postStudyEnd(token.getToken(), new StudyIdxRequest(studyIdx)).map(Response::message);
     }
 }

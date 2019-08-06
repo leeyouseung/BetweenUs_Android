@@ -4,6 +4,7 @@ import org.techtown.betweenus_android.model.Study;
 import org.techtown.betweenus_android.model.StudyList;
 import org.techtown.betweenus_android.network.Response;
 import org.techtown.betweenus_android.network.request.StudyApplyRequest;
+import org.techtown.betweenus_android.network.request.StudyIdxRequest;
 import org.techtown.betweenus_android.network.request.StudyRequest;
 
 import java.util.List;
@@ -34,7 +35,7 @@ public interface StudyApi {
 
     @POST("/study/end")
     Single<retrofit2.Response<Response>> postStudyEnd(@Header("x-access-token") String token,
-                                                                      @Body Integer studyIdx);
+                                                      @Body StudyIdxRequest studyIdxRequest);
 
     @DELETE("/study/apply")
     Single<retrofit2.Response<Response>> deleteStudyMember();
