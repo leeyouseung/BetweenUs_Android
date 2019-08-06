@@ -75,6 +75,10 @@ public class FoundStudyActivity extends BaseActivity<FoundStudyActivityBinding> 
         int id = item.getItemId();
         Intent intent;
         switch (id) {
+            case R.id.menu_me :
+                intent = new Intent(this, MyPageActivity.class);
+                startActivity(intent);
+                break;
             case R.id.menu_home:
                 intent = new Intent(this, MainActivity.class);
                 startActivity(intent);

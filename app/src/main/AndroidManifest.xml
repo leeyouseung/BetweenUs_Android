@@ -28,17 +28,21 @@
         </activity>
         <activity android:name="org.techtown.betweenus_android.view.activity.MainActivity">
         </activity>
-        <activity android:name=".view.activity.ProfileActivity">
+        <activity android:name=".view.activity.MyPageActivity">
         </activity>
         <activity android:name=".view.activity.StudyWriteActivity">
         </activity>
         <activity android:name=".view.activity.StudyActivity">
         </activity>
         <activity android:name=".view.activity.LoginActivity" />
-        <activity android:name=".view.activity.ApplyStudyActivity"></activity>
-        <activity android:name=".view.activity.FoundStudyActivity"></activity>
-        <activity android:name=".view.activity.StudyManageActivity"></activity>
-        <activity android:name=".view.activity.QrActivity"></activity>
+        <activity android:name=".view.activity.ApplyStudyActivity">
+        </activity>
+        <activity android:name=".view.activity.FoundStudyActivity">
+        </activity>
+        <activity android:name=".view.activity.StudyManageActivity">
+        </activity>
+        <activity android:name=".view.activity.QrActivity">
+        </activity>
     </application>
 
 </manifest>
