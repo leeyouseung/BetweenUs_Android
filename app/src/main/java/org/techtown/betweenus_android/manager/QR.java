@@ -33,7 +33,7 @@ public class QR extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         db.execSQL("CREATE TABLE QR (idx Integer PRIMARY KEY, url TEXT, currentUser TEXT);");
-        Integer idx = Integer.parseInt(url.split("/")[3]);
+        Integer idx = Integer.parseInt(url.split("/")[4]);
         db.execSQL("INSERT INTO QR VALUES(" + idx + "  ,  '" + url + "'  ,  '" +  user.getResult().getId() + "');");
         db.close();
     }

@@ -16,6 +16,7 @@ import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.Url;
 
 public interface StudyApi {
 
@@ -36,6 +37,9 @@ public interface StudyApi {
     @POST("/study/end")
     Single<retrofit2.Response<Response>> postStudyEnd(@Header("x-access-token") String token,
                                                       @Body StudyIdxRequest studyIdxRequest);
+
+    @POST
+    Single<retrofit2.Response<Response>> postQr(@Url String url);
 
     @DELETE("/study/apply")
     Single<retrofit2.Response<Response>> deleteStudyMember();

@@ -15,12 +15,13 @@ import com.google.zxing.integration.android.IntentResult;
 import org.techtown.betweenus_android.R;
 import org.techtown.betweenus_android.base.BaseActivity;
 import org.techtown.betweenus_android.databinding.StudyManageActivityBinding;
+import org.techtown.betweenus_android.manager.StudyManager;
 import org.techtown.betweenus_android.manager.ViewModelFactory;
 import org.techtown.betweenus_android.model.Study;
 import org.techtown.betweenus_android.view.fragment.StudyManageAllMemberFragment;
 import org.techtown.betweenus_android.view.fragment.StudyManageMainFragment;
 import org.techtown.betweenus_android.view.fragment.StudyManageOkMemberFragment;
-import org.techtown.betweenus_android.viewmodel.StudyManageViewModel;
+import org.techtown.betweenus_android.viewmodel.StudyViewModel;
 
 public class StudyManageActivity extends BaseActivity<StudyManageActivityBinding> {
 
@@ -29,7 +30,7 @@ public class StudyManageActivity extends BaseActivity<StudyManageActivityBinding
 
     private Study study;
 
-    private StudyManageViewModel studyManageViewModel;
+    private StudyViewModel studyViewModel;
 
     @Override
     protected int layoutId() {
@@ -48,7 +49,7 @@ public class StudyManageActivity extends BaseActivity<StudyManageActivityBinding
     }
 
     private void initViewModel() {
-        studyManageViewModel = ViewModelProviders.of(this,new ViewModelFactory(this)).get(StudyManageViewModel.class);
+        studyViewModel = ViewModelProviders.of(this,new ViewModelFactory(this)).get(StudyViewModel.class);
     }
 
     private void initIntent() {
@@ -73,7 +74,14 @@ public class StudyManageActivity extends BaseActivity<StudyManageActivityBinding
             changeBtn(2);
         });
 
-        binding.scan.setOnClickListener(v -> new IntentIntegrator(this).initiateScan());
+        binding.scan.setOnClickListener(v -> {
+            if (new StudyManager(this).getStudyManager(study.getIdx())) {
+                new IntentIntegrator(this).initiateScan();
+            }
+            else {
+                Toast.makeText(this, "스터디를 시작 해 주세요", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         binding.back.setOnClickListener(v -> finish());
     }
@@ -127,15 +135,16 @@ public class StudyManageActivity extends BaseActivity<StudyManageActivityBinding
         if (result != null) {
             String contents = result.getContents();
             if(contents != null) {
+                studyViewModel.postQr(contents);
                 Toast.makeText(this,"스캔 완료",Toast.LENGTH_LONG).show();
                 new IntentIntegrator(this).initiateScan();
             }
             else {
-                return;
+                finish();
             }
         }
         else {
-            return;
+            finish();
         }
     }
 }

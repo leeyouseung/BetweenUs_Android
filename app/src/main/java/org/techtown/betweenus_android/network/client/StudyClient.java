@@ -39,4 +39,8 @@ public class StudyClient extends BaseClient<StudyApi> {
     public Single<String> postStudyEnd(Token token, Integer studyIdx) {
         return api.postStudyEnd(token.getToken(), new StudyIdxRequest(studyIdx)).map(Response::message);
     }
+
+    public Single<String> postQr(String url) {
+        return api.postQr(url).map(Response::message);
+    }
 }
