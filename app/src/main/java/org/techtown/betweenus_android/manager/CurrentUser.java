@@ -22,7 +22,7 @@ public class CurrentUser extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE User (token TEXT PRIMARY KEY, studentidx Integer, name TEXT, school TEXT, profileImg TEXT, phoneNumber TEXT, id TEXT, grade Integer, schoolClass Integer);");
+        db.execSQL("CREATE TABLE User (token TEXT PRIMARY KEY, studentidx Integer, name TEXT, school TEXT, profileImg String, phoneNumber TEXT, id TEXT, grade Integer, schoolClass Integer);");
     }
 
     @Override
@@ -33,8 +33,8 @@ public class CurrentUser extends SQLiteOpenHelper {
     public void insert(Member member) {
         SQLiteDatabase db = getWritableDatabase();
 
-        db.execSQL("INSERT INTO User VALUES('" + new Token(context).getToken() + "'  ,  " + member.getStudentidx() + "  ,  '" + member.getName() + "'  ,  '" + member.getSchool() + "'" +
-                "  ,  '" + member.getprofileImg() + "'  ,  '" + member.getPhoneNumber() + "'  ,  '" + member.getId() + "'" +
+        db.execSQL("INSERT INTO User VALUES('" + new Token(context).getToken() + "'  ,  " + member.getStudentidx() + "  ,  '" + member.getName() + "'  ,  '" + member.getSchool() + "' , '"
+                  + member.getprofileImg() + "'  ,  '" + member.getPhoneNumber() + "'  ,  '" + member.getId() + "'" +
                 "  ,  " + member.getGrade() + "  ,  '" + member.getSchoolClass() + "');");
         db.close();
     }
