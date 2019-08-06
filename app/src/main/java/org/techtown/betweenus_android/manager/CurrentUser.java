@@ -33,7 +33,7 @@ public class CurrentUser extends SQLiteOpenHelper {
 
         db.execSQL("INSERT INTO User VALUES('" + new Token(context).getToken() + "'  ,  " + member.getStudentidx() + "  ,  '" + member.getName() + "'  ,  '" + member.getSchool() + "'" +
                 "  ,  '" + member.getProfileimg() + "'  ,  '" + member.getPhoneNumber() + "'  ,  '" + member.getId() + "'" +
-                "  ,  " + member.getGrade() + "  ,  '" + member.getSchoolClass() + ");");
+                "  ,  " + member.getGrade() + "  ,  '" + member.getSchoolClass() + "');");
         db.close();
     }
 
