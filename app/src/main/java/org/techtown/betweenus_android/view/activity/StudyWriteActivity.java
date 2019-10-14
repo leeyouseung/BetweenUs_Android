@@ -184,7 +184,6 @@ public class StudyWriteActivity extends BaseActivity<StudyWritingActivityBinding
     private final int REQUEST_IMAGE_CROP = 2;
 
     private Uri photoURI;
-    private Uri tempURI;
 
     private void goToAlbum() {
 
