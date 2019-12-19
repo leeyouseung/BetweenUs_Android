@@ -4,13 +4,11 @@ import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.LayoutRes;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
-import androidx.lifecycle.ViewModel;
-import androidx.lifecycle.ViewModelProviders;
-
-import org.techtown.betweenus_android.manager.ViewModelFactory;
 
 public abstract class BaseActivity<VB extends ViewDataBinding> extends AppCompatActivity {
 
